@@ -1,6 +1,7 @@
 import React from 'react';
 import { ThemeProject } from '../ast/types';
 import { sampleAst } from '../ast/sampleAst';
+import { defaultDesignTokens } from '../designSystem/defaultTokens';
 import { LayoutTemplate, MonitorPlay, X } from 'lucide-react';
 
 interface Props {
@@ -12,14 +13,25 @@ interface Props {
 const emptyAst: ThemeProject = {
   id: '',
   name: '',
+  slug: 'new-blank-theme',
   settings: {},
-  globalStyles: {},
+  designTokens: defaultDesignTokens,
   assets: [],
   layouts: [],
   templates: [
     {
+      id: 'tpl-default',
+      type: 'default',
+      sections: []
+    },
+    {
       id: 'tpl-index',
       type: 'index',
+      sections: []
+    },
+    {
+      id: 'tpl-post',
+      type: 'post',
       sections: []
     }
   ]

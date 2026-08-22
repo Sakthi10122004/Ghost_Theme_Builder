@@ -4,6 +4,7 @@ import { SortableContext, sortableKeyboardCoordinates, verticalListSortingStrate
 import { Plus } from 'lucide-react';
 import { SectionRow } from './SectionRow';
 import { useAstHistory } from '../../state/astHistory';
+import { useEditorStore } from '../../state/editorStore';
 import { Template } from '../../ast/types';
 
 interface Props {
@@ -12,6 +13,7 @@ interface Props {
 
 export const SectionsList: React.FC<Props> = ({ template }) => {
   const reorderSection = useAstHistory((state) => state.reorderSection);
+  const setIsAddSectionModalOpen = useEditorStore((state) => state.setIsAddSectionModalOpen);
 
   const sensors = useSensors(
     useSensor(PointerSensor),
@@ -31,8 +33,7 @@ export const SectionsList: React.FC<Props> = ({ template }) => {
   };
 
   const handleAddSection = () => {
-    // Stub for Phase 3 Add Section modal
-    alert("TODO: Phase 3 - Open Add Section Modal");
+    setIsAddSectionModalOpen(true);
   };
 
   return (

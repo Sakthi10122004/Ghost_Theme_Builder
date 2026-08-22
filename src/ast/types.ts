@@ -6,11 +6,25 @@
 export interface ThemeProject {
   id: string;
   name: string;
+  slug: string;
   settings: Record<string, unknown>; // Theme-level config, e.g., ghost.json-style options
   layouts: Layout[];
   templates: Template[];
-  globalStyles: StyleObject;
+  designTokens: DesignTokens;
   assets: Asset[];
+}
+
+export interface DesignTokens {
+  accentColor: string;
+  headingFont: string;
+  bodyFont: string;
+  typeScale: {
+    h1: string; h2: string; h3: string; h4: string;
+    body: string; small: string; caption: string;
+  };
+  postsPerPage: number;
+  containerWidth: 'full' | 'wide' | 'standard' | 'narrow';
+  spacingScale: 'compact' | 'standard' | 'relaxed';
 }
 
 /**
@@ -48,14 +62,52 @@ export interface Section {
     tablet?: Partial<StyleObject>;
     mobile?: Partial<StyleObject>;
   };
+  ghostDynamic?: {
+    category: 'posts' | 'authors' | 'tags' | 'recommendations' | 'newsletter';
+    source: 'routes' | 'featured' | 'related' | 'custom';
+    limit: number | 'theme-default';
+    order: string;
+    layoutStyle: string;
+    filterRules?: FilterRule[];
+    manualFilterString?: string;
+    filterMode?: 'visual' | 'manual';
+  };
+  colorConfig?: { mode: 'inherit' | 'light' | 'dark'; paletteId: string };
+  layoutConfig?: {
+    sectionWidth: 'full' | 'wide' | 'standard' | 'narrow';
+    contentWidth: 'full' | 'wide' | 'standard' | 'narrow';
+    minHeight: 'S' | 'M' | 'L' | 'XL';
+    hAlign: 'left' | 'center' | 'right';
+    vAlign: 'top' | 'center' | 'bottom';
+  };
+  htmlAnchor?: string;
+  fieldLocks?: Record<string, boolean>; // key = prop key, true = unlocked (editable in Ghost Admin)
+}
+
+export interface FilterRule {
+  field: 'tag' | 'author' | 'visibility' | 'featured' | 'published_at';
+  operator: 'is' | 'is-not' | 'contains' | 'starts-with';
+  value: string;
+  combinator: 'all' | 'any';
 }
 
 /**
  * A property value assigned to a Section.
- * Can be either a static hard-coded value or a dynamic Ghost data binding.
+ * Can be either a static hard-coded value, a dynamic Ghost data binding, or rich text.
  * CRITICAL RULE: NEVER store raw Handlebars ({{...}}) here.
  */
-export type PropValue = StaticValue | GhostBinding;
+export type PropValue = StaticValue | GhostBinding | RichValue;
+
+/**
+ * A rich text value mixing literal strings and bindings.
+ */
+export interface RichValue {
+  kind: 'rich';
+  parts: Array<
+    | { kind: 'text'; value: string }
+    | { kind: 'binding'; binding: GhostBinding }
+  >;
+}
 
 /**
  * A static value provided by the user via the visual editor.

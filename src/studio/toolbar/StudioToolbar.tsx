@@ -4,8 +4,11 @@ import { PreviewModeToggle } from './PreviewModeToggle';
 import { Download, ChevronLeft } from 'lucide-react';
 import { useRouter } from 'next/navigation';
 import { useAstHistory } from '../../state/astHistory';
+import { ContinuousIssuesIndicator } from '../exportFlow/ContinuousIssuesIndicator';
+import { ExportPanel } from '../exportFlow/ExportPanel';
 
 export const StudioToolbar: React.FC = () => {
+  const [showExportPanel, setShowExportPanel] = React.useState(false);
   const router = useRouter();
   const present = useAstHistory((state) => state.present);
   const undo = useAstHistory((state) => state.undo);
@@ -73,10 +76,11 @@ export const StudioToolbar: React.FC = () => {
 
       {/* Right Area: Preview Toggle & Primary Action */}
       <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
+        <ContinuousIssuesIndicator onClick={() => setShowExportPanel(true)} />
         <PreviewModeToggle />
         
         <button 
-          onClick={handleDownload}
+          onClick={() => setShowExportPanel(true)}
           style={{
             display: 'flex', alignItems: 'center', gap: '8px',
             backgroundColor: '#4f46e5', color: 'white', border: 'none',
@@ -86,10 +90,13 @@ export const StudioToolbar: React.FC = () => {
           }}
         >
           <Download size={16} />
-          Download Theme
+          Export Theme
         </button>
       </div>
-
+      
+      {showExportPanel && (
+        <ExportPanel onClose={() => setShowExportPanel(false)} />
+      )}
     </header>
   );
 };

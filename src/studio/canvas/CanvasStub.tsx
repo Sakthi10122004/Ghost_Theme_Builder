@@ -76,7 +76,7 @@ export const CanvasStub: React.FC = () => {
               )}
               
               {/* We render a single-section template just to reuse PreviewRenderer logic */}
-              <PreviewRenderer template={{ ...activeTemplate, sections: [section] }} />
+              <PreviewRenderer template={{ ...activeTemplate, sections: [section] }} designTokens={present.designTokens} />
             </div>
           );
         })}

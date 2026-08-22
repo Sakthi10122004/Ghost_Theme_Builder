@@ -1,4 +1,5 @@
 import { ThemeProject } from '../ast/types';
+import { defaultDesignTokens } from '../designSystem/defaultTokens';
 
 export interface ProjectRecord {
   id: string;
@@ -18,7 +19,19 @@ function loadStore(): Record<string, ProjectRecord> {
   if (typeof window === 'undefined') return memoryStore;
   try {
     const data = localStorage.getItem(STORAGE_KEY);
-    return data ? JSON.parse(data) : {};
+    if (!data) return {};
+    const parsed = JSON.parse(data) as Record<string, ProjectRecord>;
+    
+    // Migrate Phase 1-5 projects to Phase 6
+    for (const key in parsed) {
+      if (!parsed[key].ast.designTokens) {
+        parsed[key].ast.designTokens = { ...defaultDesignTokens };
+      }
+      if (!parsed[key].ast.slug) {
+        parsed[key].ast.slug = parsed[key].ast.name.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
+      }
+    }
+    return parsed;
   } catch (e) {
     console.warn("Failed to load from localStorage", e);
     return memoryStore;
@@ -61,6 +74,7 @@ export const projectsRepository = {
     const newAst = structuredClone(ast);
     newAst.id = ast.id || `proj-${Date.now()}`;
     newAst.name = name;
+    newAst.slug = name.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
     
     const record: ProjectRecord = {
       id: newAst.id,

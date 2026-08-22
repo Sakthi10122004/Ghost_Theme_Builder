@@ -1,22 +1,23 @@
 import React from 'react';
-import { Template, ThemeProject } from '../ast/types';
+import { Template, ThemeProject, DesignTokens } from '../ast/types';
 import { HeroSection } from './sections/HeroSection';
 import { TextBlockSection } from './sections/TextBlockSection';
 
 interface Props {
   template: Template;
+  designTokens: DesignTokens;
 }
 
 /**
  * PreviewRenderer takes a Template AST and renders it as real React components.
  * This consumer never touches raw Handlebars strings.
  */
-export const PreviewRenderer: React.FC<Props> = ({ template }) => {
+export const PreviewRenderer: React.FC<Props> = ({ template, designTokens }) => {
   
   const renderSection = (section: any) => {
     switch (section.type) {
       case 'hero':
-        return <HeroSection key={section.id} section={section} />;
+        return <HeroSection key={section.id} section={section} designTokens={designTokens} />;
       case 'text-block':
         return <TextBlockSection key={section.id} section={section} />;
       default:

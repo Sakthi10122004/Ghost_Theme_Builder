@@ -18,6 +18,8 @@
     "@puckeditor/core": "^0.23.0",
     "archiver": "^8.0.0",
     "bcryptjs": "^3.0.3",
+    "gscan": "^6.4.2",
+    "handlebars": "^4.7.9",
     "html-to-image": "^1.11.13",
     "jszip": "^3.10.1",
     "lucide-react": "^1.33.0",
@@ -26,6 +28,7 @@
     "react": "19.2.8",
     "react-dom": "19.2.8",
     "uuid": "^14.0.2",
+    "yaml": "^2.9.0",
     "zod": "^4.4.3",
     "zustand": "^5.0.15"
   },
@@ -40,6 +43,7 @@
     "eslint": "^9",
     "eslint-config-next": "16.3.1",
     "prisma": "^7.9.1",
+    "puppeteer": "^25.8.0",
     "tailwindcss": "^4",
     "typescript": "^5"
   }

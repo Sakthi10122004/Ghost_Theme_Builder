@@ -1,5 +1,6 @@
 import { ThemeProject } from './types';
 import { createBinding } from './bindingRegistry';
+import { defaultDesignTokens } from '../designSystem/defaultTokens';
 
 /**
  * Hand-written sample AST for manual testing.
@@ -9,16 +10,19 @@ import { createBinding } from './bindingRegistry';
 export const sampleAst: ThemeProject = {
   id: 'proj-1',
   name: 'Sample Theme',
+  slug: 'sample-theme',
   settings: {
     ghostVersion: '5.0',
   },
-  globalStyles: {
-    fontFamily: 'Inter, sans-serif',
-    backgroundColor: '#ffffff',
-  },
+  designTokens: defaultDesignTokens,
   assets: [],
   layouts: [],
   templates: [
+    {
+      id: 'tpl-default',
+      type: 'default',
+      sections: []
+    },
     {
       id: 'tpl-index',
       type: 'index',
@@ -28,10 +32,8 @@ export const sampleAst: ThemeProject = {
           type: 'hero',
           name: 'Main Hero',
           props: {
-            // Using GhostBinding for dynamic text
             title: createBinding('site', 'title'),
             description: createBinding('site', 'description'),
-            // Using StaticValue for visual configuration
             showButton: { kind: 'static', value: true },
             buttonText: { kind: 'static', value: 'Read More' },
           },
@@ -60,6 +62,11 @@ export const sampleAst: ThemeProject = {
           responsiveStyles: {},
         }
       ],
+    },
+    {
+      id: 'tpl-post',
+      type: 'post',
+      sections: []
     }
   ]
 };

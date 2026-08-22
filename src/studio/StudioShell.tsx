@@ -2,7 +2,8 @@ import React, { useEffect } from 'react';
 import { StudioToolbar } from './toolbar/StudioToolbar';
 import { LeftPanel } from './leftPanel/LeftPanel';
 import { CanvasStub } from './canvas/CanvasStub';
-import { PropertiesStub } from './properties/PropertiesStub';
+import { RightPanel } from './rightPanel/RightPanel';
+import { AddSectionModal } from './addSectionModal/AddSectionModal';
 import { useEditorStore } from '../state/editorStore';
 
 export const StudioShell: React.FC = () => {
@@ -32,8 +33,10 @@ export const StudioShell: React.FC = () => {
       <div style={{ display: 'flex', flex: 1, overflow: 'hidden' }}>
         <LeftPanel />
         <CanvasStub />
-        <PropertiesStub />
+        <RightPanel />
       </div>
+
+      <AddSectionModal />
     </div>
   );
 };

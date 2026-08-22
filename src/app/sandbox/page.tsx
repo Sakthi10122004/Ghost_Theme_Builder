@@ -5,6 +5,7 @@ import { useAstHistory } from '../../state/astHistory';
 import { PreviewRenderer } from '../../preview/PreviewRenderer';
 import { isValidBinding, createBinding } from '../../ast/bindingRegistry';
 import { Section } from '../../ast/types';
+import { defaultDesignTokens } from '../../designSystem/defaultTokens';
 
 export default function SandboxPage() {
   const { present, past, future, addSection, undo, redo, removeSection } = useAstHistory();
@@ -124,7 +125,7 @@ export default function SandboxPage() {
       {/* Main Preview Area */}
       <div style={{ flex: 1, backgroundColor: '#fff', overflowY: 'auto' }}>
         {activeTemplate ? (
-          <PreviewRenderer template={activeTemplate} />
+          <PreviewRenderer template={activeTemplate} designTokens={defaultDesignTokens} />
         ) : (
           <div style={{ padding: '48px', textAlign: 'center', color: '#6b7280' }}>
             No Template Active

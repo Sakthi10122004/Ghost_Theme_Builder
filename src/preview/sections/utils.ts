@@ -6,13 +6,21 @@ import { Section, PropValue } from '../../ast/types';
  * Since this is Phase 0 with no real data layer, GhostBindings 
  * return a clearly marked placeholder string instead of resolving data.
  */
-export function resolvePropValue(prop: PropValue): any {
+export function resolvePropValue(prop: PropValue | undefined): any {
+  if (!prop) return null;
+
   if (prop.kind === 'static') {
     return prop.value;
   }
   
   if (prop.kind === 'binding') {
     return `[${prop.source}.${prop.field}]`; // Placeholder for Ghost data
+  }
+
+  if (prop.kind === 'rich') {
+    return prop.parts.map(p => 
+      p.kind === 'text' ? p.value : `[${p.binding.source}.${p.binding.field}]`
+    ).join('');
   }
   
   return null;

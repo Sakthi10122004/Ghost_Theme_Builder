@@ -56,7 +56,14 @@ export const PropertiesStub: React.FC = () => {
               </div>
             </div>
 
-            <div style={{ backgroundColor: '#fef2f2', border: '1px solid #fecaca', padding: '12px', borderRadius: '6px', marginTop: '24px' }}>
+            {activeSection.ghostDynamic && (
+              <div style={{ backgroundColor: '#fee2e2', border: '1px solid #fca5a5', padding: '8px 12px', borderRadius: '6px', display: 'flex', alignItems: 'center', gap: '8px' }}>
+                <span style={{ fontSize: '0.75rem', fontWeight: 700, color: '#b91c1c', letterSpacing: '0.05em' }}>DEV FLAG:</span>
+                <span style={{ fontSize: '0.75rem', color: '#991b1b', fontFamily: 'monospace' }}>ghostDynamic: {activeSection.ghostDynamic.category}</span>
+              </div>
+            )}
+
+            <div style={{ backgroundColor: '#fef2f2', border: '1px solid #fecaca', padding: '12px', borderRadius: '6px', marginTop: '12px' }}>
               <p style={{ margin: 0, fontSize: '0.8125rem', color: '#b91c1c', lineHeight: 1.5 }}>
                 <strong>TODO (Phase 4):</strong> Render dynamic form inputs based on the section's schema (e.g. text fields, color pickers, Ghost binding selectors).
               </p>

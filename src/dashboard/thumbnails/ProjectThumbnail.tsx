@@ -94,7 +94,7 @@ export const ProjectThumbnail: React.FC<Props> = ({ project }) => {
           }}
         >
           <div ref={hiddenRef} style={{ width: '100%', height: '100%', overflow: 'hidden' }}>
-            <PreviewRenderer template={homeTemplate} />
+            <PreviewRenderer template={homeTemplate} designTokens={project.ast.designTokens} />
           </div>
         </div>
       )}
