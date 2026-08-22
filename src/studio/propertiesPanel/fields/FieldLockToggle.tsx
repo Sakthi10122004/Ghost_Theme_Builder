@@ -22,12 +22,12 @@ export const FieldLockToggle: React.FC<Props> = ({ isUnlocked, onToggle }) => {
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
-        color: isUnlocked ? '#0284c7' : '#94a3b8',
-        opacity: isUnlocked ? 1 : 0.6,
+        color: isUnlocked ? 'var(--accent)' : 'var(--muted)',
+        opacity: 1, // Let the strict token color do the signaling, no opacity hack
         transition: 'all 0.2s ease',
       }}
-      onMouseOver={(e) => e.currentTarget.style.opacity = '1'}
-      onMouseOut={(e) => e.currentTarget.style.opacity = isUnlocked ? '1' : '0.6'}
+      onMouseOver={(e) => { e.currentTarget.style.color = isUnlocked ? 'var(--accent)' : 'var(--ink)' }}
+      onMouseOut={(e) => { e.currentTarget.style.color = isUnlocked ? 'var(--accent)' : 'var(--muted)' }}
     >
       {isUnlocked ? <Unlock size={14} /> : <Lock size={14} />}
     </button>

@@ -25,49 +25,49 @@ export const StudioToolbar: React.FC = () => {
   return (
     <header style={{
       height: '56px',
-      borderBottom: '1px solid #e2e8f0',
-      backgroundColor: 'white',
+      borderBottom: '1px solid var(--line)',
+      backgroundColor: 'var(--surface)',
       display: 'flex',
       alignItems: 'center',
       justifyContent: 'space-between',
-      padding: '0 16px',
+      padding: '0 var(--space-16)',
       position: 'relative',
       zIndex: 50 // Keep toolbar on top of everything
     }}>
       
       {/* Left Area: Navigation & Project Name */}
-      <div style={{ display: 'flex', alignItems: 'center', gap: '16px' }}>
+      <div style={{ display: 'flex', alignItems: 'center', gap: 'var(--space-16)' }}>
         <button 
           onClick={() => router.push('/dashboard')}
           style={{
-            display: 'flex', alignItems: 'center', gap: '4px',
-            backgroundColor: 'transparent', border: 'none', color: '#64748b', cursor: 'pointer',
-            fontSize: '0.875rem', fontWeight: 500
+            display: 'flex', alignItems: 'center', gap: 'var(--space-4)',
+            backgroundColor: 'transparent', border: 'none', color: 'var(--muted)', cursor: 'pointer',
+            fontSize: 'var(--text-sm)', fontWeight: 500
           }}
         >
           <ChevronLeft size={16} />
           Dashboard
         </button>
-        <div style={{ width: '1px', height: '24px', backgroundColor: '#e2e8f0' }} />
-        <span style={{ fontWeight: 600, color: '#0f172a', fontSize: '0.9375rem' }}>
+        <div style={{ width: '1px', height: '24px', backgroundColor: 'var(--line)' }} />
+        <span style={{ fontWeight: 600, color: 'var(--ink)', fontSize: 'var(--text-base)' }}>
           {present.name || 'Untitled Theme'}
         </span>
       </div>
 
       {/* Center Area: Undo/Redo & Devices */}
-      <div style={{ display: 'flex', alignItems: 'center', gap: '24px' }}>
+      <div style={{ display: 'flex', alignItems: 'center', gap: 'var(--space-24)' }}>
         
         {/* Minimal Undo/Redo integration */}
-        <div style={{ display: 'flex', gap: '8px' }}>
+        <div style={{ display: 'flex', gap: 'var(--space-8)' }}>
           <button 
             onClick={undo} disabled={past.length === 0}
-            style={{ border: 'none', background: 'transparent', cursor: past.length ? 'pointer' : 'not-allowed', opacity: past.length ? 1 : 0.4, fontSize: '0.875rem', fontWeight: 500 }}
+            style={{ border: 'none', background: 'transparent', cursor: past.length ? 'pointer' : 'not-allowed', opacity: past.length ? 1 : 0.4, fontSize: 'var(--text-sm)', fontWeight: 500, color: 'var(--ink)' }}
           >
             Undo
           </button>
           <button 
             onClick={redo} disabled={future.length === 0}
-            style={{ border: 'none', background: 'transparent', cursor: future.length ? 'pointer' : 'not-allowed', opacity: future.length ? 1 : 0.4, fontSize: '0.875rem', fontWeight: 500 }}
+            style={{ border: 'none', background: 'transparent', cursor: future.length ? 'pointer' : 'not-allowed', opacity: future.length ? 1 : 0.4, fontSize: 'var(--text-sm)', fontWeight: 500, color: 'var(--ink)' }}
           >
             Redo
           </button>
@@ -77,7 +77,7 @@ export const StudioToolbar: React.FC = () => {
       </div>
 
       {/* Right Area: Preview Toggle & Primary Action */}
-      <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
+      <div style={{ display: 'flex', alignItems: 'center', gap: 'var(--space-12)' }}>
         <ContinuousIssuesIndicator onClick={() => setShowExportPanel(true)} />
         <ColorModeToggle />
         <DataSourceToggle />
@@ -86,11 +86,10 @@ export const StudioToolbar: React.FC = () => {
         <button 
           onClick={() => setShowExportPanel(true)}
           style={{
-            display: 'flex', alignItems: 'center', gap: '8px',
-            backgroundColor: '#4f46e5', color: 'white', border: 'none',
-            padding: '8px 16px', borderRadius: '6px', fontWeight: 500,
-            cursor: 'pointer', fontSize: '0.875rem',
-            boxShadow: '0 1px 2px 0 rgba(0, 0, 0, 0.05)'
+            display: 'flex', alignItems: 'center', gap: 'var(--space-8)',
+            backgroundColor: 'var(--accent)', color: 'white', border: 'none',
+            padding: 'var(--space-8) var(--space-16)', borderRadius: 'var(--radius-sm)', fontWeight: 500,
+            cursor: 'pointer', fontSize: 'var(--text-sm)'
           }}
         >
           <Download size={16} />

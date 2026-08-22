@@ -1,0 +1,7 @@
+<svg width="280" height="157" xmlns="http://www.w3.org/2000/svg">
+  <rect width="280" height="157" fill="#f8fafc" />
+  <rect width="278" height="155" x="1" y="1" fill="none" stroke="#94a3b8" stroke-width="2" stroke-dasharray="4 2" rx="6" />
+  <text x="50%" y="30%" font-family="system-ui, sans-serif" font-weight="600" font-size="14" fill="#1e293b" text-anchor="middle">FEATURE COMPARISON</text>
+  <text x="50%" y="45%" font-family="system-ui, sans-serif" font-size="12" fill="#64748b" text-anchor="middle">PRODUCTS</text>
+  <rect x="20" y="80" width="110" height="40" fill="#cbd5e1" rx="4" /><rect x="140" y="80" width="110" height="40" fill="#cbd5e1" rx="4" />
+</svg>

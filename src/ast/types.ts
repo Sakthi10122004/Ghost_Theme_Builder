@@ -96,7 +96,18 @@ export interface FilterRule {
  * Can be either a static hard-coded value, a dynamic Ghost data binding, or rich text.
  * CRITICAL RULE: NEVER store raw Handlebars ({{...}}) here.
  */
-export type PropValue = StaticValue | GhostBinding | RichValue;
+export type PropValue = StaticValue | GhostBinding | RichValue | PortalAction | NavigationValue;
+
+export interface PortalAction {
+  kind: 'portal';
+  action: string; // e.g. 'signin', 'signup', or form actions like 'members-form'
+  label: string; // the text of the button
+}
+
+export interface NavigationValue {
+  kind: 'navigation';
+  variant: 'primary' | 'secondary';
+}
 
 /**
  * A rich text value mixing literal strings and bindings.

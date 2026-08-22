@@ -57,19 +57,34 @@ export const CanvasStub: React.FC = () => {
               id={`canvas-section-${section.id}`} // Used for scrolling later if needed
               style={{
                 position: 'relative',
-                outline: isSelected ? '4px solid #4f46e5' : '1px solid transparent',
-                outlineOffset: '-2px',
+                outline: isSelected ? '1px solid var(--accent)' : '1px solid transparent',
+                outlineOffset: '-1px',
                 transition: 'outline 0.2s',
                 zIndex: isSelected ? 10 : 1
               }}
             >
-              {/* Optional: Add a label that shows up when selected to prove sync */}
+              {/* Corner Tick Marks (Printer's crop marks) */}
               {isSelected && (
-                <div style={{
-                  position: 'absolute', top: 0, left: 0,
-                  backgroundColor: '#4f46e5', color: 'white',
-                  padding: '4px 8px', fontSize: '0.75rem', fontWeight: 600,
-                  borderBottomRightRadius: '4px'
+                <>
+                  <div style={{ position: 'absolute', top: '-4px', left: '-4px', width: '8px', height: '8px', borderTop: '1px solid var(--accent)', borderLeft: '1px solid var(--accent)' }} />
+                  <div style={{ position: 'absolute', top: '-4px', right: '-4px', width: '8px', height: '8px', borderTop: '1px solid var(--accent)', borderRight: '1px solid var(--accent)' }} />
+                  <div style={{ position: 'absolute', bottom: '-4px', left: '-4px', width: '8px', height: '8px', borderBottom: '1px solid var(--accent)', borderLeft: '1px solid var(--accent)' }} />
+                  <div style={{ position: 'absolute', bottom: '-4px', right: '-4px', width: '8px', height: '8px', borderBottom: '1px solid var(--accent)', borderRight: '1px solid var(--accent)' }} />
+                </>
+              )}
+
+              {/* Active-section label: margin annotation style */}
+              {isSelected && (
+                <div className="font-mono" style={{
+                  position: 'absolute', 
+                  top: '-24px', 
+                  left: 0,
+                  color: 'var(--accent)',
+                  fontSize: 'var(--text-xs)',
+                  lineHeight: 'var(--text-xs-lh)',
+                  fontWeight: 600,
+                  textTransform: 'uppercase',
+                  letterSpacing: '0.05em'
                 }}>
                   {section.name} (Active)
                 </div>

@@ -8,21 +8,22 @@ export const PreviewModeToggle: React.FC = () => {
   return (
     <div style={{
       display: 'flex',
-      background: '#2d2d2d',
+      background: 'var(--paper)',
+      border: '1px solid var(--line)',
       padding: '4px',
-      borderRadius: '8px',
-      fontSize: '13px',
+      borderRadius: 'var(--radius-md)',
+      fontSize: 'var(--text-sm)',
       fontWeight: 500,
-      marginRight: '16px'
+      marginRight: 'var(--space-16)'
     }}>
       <button
         onClick={() => setMode('design')}
         style={{
-          background: mode === 'design' ? '#4f46e5' : 'transparent',
-          color: mode === 'design' ? '#fff' : '#a0a0a0',
-          border: 'none',
-          padding: '6px 12px',
-          borderRadius: '6px',
+          background: mode === 'design' ? 'var(--surface)' : 'transparent',
+          color: mode === 'design' ? 'var(--accent)' : 'var(--muted)',
+          border: mode === 'design' ? '1px solid var(--line)' : '1px solid transparent',
+          padding: 'var(--space-4) var(--space-12)',
+          borderRadius: 'calc(var(--radius-md) - 4px)',
           cursor: 'pointer',
           transition: 'all 0.2s'
         }}
@@ -32,11 +33,11 @@ export const PreviewModeToggle: React.FC = () => {
       <button
         onClick={() => setMode('ghost')}
         style={{
-          background: mode === 'ghost' ? '#4f46e5' : 'transparent',
-          color: mode === 'ghost' ? '#fff' : '#a0a0a0',
-          border: 'none',
-          padding: '6px 12px',
-          borderRadius: '6px',
+          background: mode === 'ghost' ? 'var(--surface)' : 'transparent',
+          color: mode === 'ghost' ? 'var(--accent)' : 'var(--muted)',
+          border: mode === 'ghost' ? '1px solid var(--line)' : '1px solid transparent',
+          padding: 'var(--space-4) var(--space-12)',
+          borderRadius: 'calc(var(--radius-md) - 4px)',
           cursor: 'pointer',
           transition: 'all 0.2s'
         }}

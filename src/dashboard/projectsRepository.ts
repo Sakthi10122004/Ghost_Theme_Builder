@@ -44,6 +44,18 @@ function loadStore(): Record<string, ProjectRecord> {
       if (!templates.some(t => t.type === 'post')) {
         templates.push({ id: `tpl-post-${Date.now()}`, type: 'post', sections: [] });
       }
+      if (!templates.some(t => t.type === 'page')) {
+        templates.push({ id: `tpl-page-${Date.now()}`, type: 'page', sections: [] });
+      }
+      if (!templates.some(t => t.type === 'tag')) {
+        templates.push({ id: `tpl-tag-${Date.now()}`, type: 'tag', sections: [] });
+      }
+      if (!templates.some(t => t.type === 'author')) {
+        templates.push({ id: `tpl-author-${Date.now()}`, type: 'author', sections: [] });
+      }
+      if (!templates.some(t => t.type === 'error')) {
+        templates.push({ id: `tpl-error-${Date.now()}`, type: 'error', sections: [] });
+      }
       parsed[key].ast.templates = templates;
     }
     return parsed;

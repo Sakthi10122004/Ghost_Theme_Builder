@@ -2,56 +2,233 @@ import { SectionPreset } from '../types';
 
 export const tagsPresets: SectionPreset[] = [
   {
-    id: 'tags-v1',
-    category: 'tags',
-    variantName: 'Tag Cloud Pill Bar',
-    keywords: ['tags', 'tag cloud pill bar'],
-    thumbnailPath: 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjgwIiBoZWlnaHQ9IjE1NyIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KICA8cmVjdCB3aWR0aD0iMjgwIiBoZWlnaHQ9IjE1NyIgZmlsbD0iI2Y4ZmFmYyIgLz4KICA8cmVjdCB3aWR0aD0iMjc4IiBoZWlnaHQ9IjE1NSIgeD0iMSIgeT0iMSIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjY2JkNWUxIiBzdHJva2Utd2lkdGg9IjIiIHN0cm9rZS1kYXNoYXJyYXk9IjYgNCIgcng9IjYiIC8+CiAgPHRleHQgeD0iNTAlIiB5PSI0NSUiIGZvbnQtZmFtaWx5PSJzeXN0ZW0tdWksIHNhbnMtc2VyaWYiIGZvbnQtd2VpZ2h0PSI2MDAiIGZvbnQtc2l6ZT0iMTQiIGZpbGw9IiMzMzQxNTUiIHRleHQtYW5jaG9yPSJtaWRkbGUiPlRBRyBDTE9VRCBQSUxMIEJBUjwvdGV4dD4KICA8dGV4dCB4PSI1MCUiIHk9IjYwJSIgZm9udC1mYW1pbHk9InN5c3RlbS11aSwgc2Fucy1zZXJpZiIgZm9udC1zaXplPSIxMiIgZmlsbD0iIzY0NzQ4YiIgdGV4dC1hbmNob3I9Im1pZGRsZSI+VEFHUzwvdGV4dD4KPC9zdmc+',
-    buildSection: () => ({
-      id: `sec-${Date.now()}-${Math.random().toString(36).substring(7)}`,
-      type: 'tags',
-      name: 'Tag Cloud Pill Bar',
-      props: {
-        tags: { kind: 'static', value: 'Pills: Tech, Design, News' }
-      },
-      styles: {"padding":"32px","display":"flex","flexWrap":"wrap","gap":"12px"},
-      responsiveStyles: {}
-    })
-  },
+  "id": "tags-v1",
+  "category": "tags",
+  "variantName": "Tag Cloud",
+  "keywords": [
+    "tags",
+    "tag cloud"
+  ],
+  "thumbnailPath": "/preset-thumbnails/tags-tags-v1.svg",
+  "buildSection": () => ({id: `sec-${Date.now()}-${Math.random().toString(36).substring(7)}`,type: "tags",name: "Tag Cloud",props: {
+      "dynamicDataTarget": {
+            "kind": "binding",
+            "source": "site",
+            "field": "title"
+      }
+},ghostDynamic: {
+      "category": "tags",
+      "source": "routes",
+      "limit": 20,
+      "order": "count.posts desc",
+      "layoutStyle": "cloud"
+},styles: {"display":"flex","flexWrap":"wrap"},responsiveStyles: {}})
+},
   {
-    id: 'tags-v2',
-    category: 'tags',
-    variantName: 'Visual Tag Cards',
-    keywords: ['tags', 'visual tag cards'],
-    thumbnailPath: 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjgwIiBoZWlnaHQ9IjE1NyIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KICA8cmVjdCB3aWR0aD0iMjgwIiBoZWlnaHQ9IjE1NyIgZmlsbD0iI2Y4ZmFmYyIgLz4KICA8cmVjdCB3aWR0aD0iMjc4IiBoZWlnaHQ9IjE1NSIgeD0iMSIgeT0iMSIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjY2JkNWUxIiBzdHJva2Utd2lkdGg9IjIiIHN0cm9rZS1kYXNoYXJyYXk9IjYgNCIgcng9IjYiIC8+CiAgPHRleHQgeD0iNTAlIiB5PSI0NSUiIGZvbnQtZmFtaWx5PSJzeXN0ZW0tdWksIHNhbnMtc2VyaWYiIGZvbnQtd2VpZ2h0PSI2MDAiIGZvbnQtc2l6ZT0iMTQiIGZpbGw9IiMzMzQxNTUiIHRleHQtYW5jaG9yPSJtaWRkbGUiPlZJU1VBTCBUQUcgQ0FSRFM8L3RleHQ+CiAgPHRleHQgeD0iNTAlIiB5PSI2MCUiIGZvbnQtZmFtaWx5PSJzeXN0ZW0tdWksIHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTIiIGZpbGw9IiM2NDc0OGIiIHRleHQtYW5jaG9yPSJtaWRkbGUiPlRBR1M8L3RleHQ+Cjwvc3ZnPg==',
-    buildSection: () => ({
-      id: `sec-${Date.now()}-${Math.random().toString(36).substring(7)}`,
-      type: 'tags',
-      name: 'Visual Tag Cards',
-      props: {
-        card1: { kind: 'static', value: 'Tag Cover 1' },
-        card2: { kind: 'static', value: 'Tag Cover 2' }
-      },
-      styles: {"padding":"48px","display":"grid","gridTemplateColumns":"repeat(4, 1fr)","gap":"16px"},
-      responsiveStyles: {}
-    })
-  },
+  "id": "tags-v2",
+  "category": "tags",
+  "variantName": "Tag Grid with Post Count",
+  "keywords": [
+    "tags",
+    "tag grid with post count"
+  ],
+  "thumbnailPath": "/preset-thumbnails/tags-tags-v2.svg",
+  "buildSection": () => ({id: `sec-${Date.now()}-${Math.random().toString(36).substring(7)}`,type: "tags",name: "Tag Grid with Post Count",props: {
+      "dynamicDataTarget": {
+            "kind": "binding",
+            "source": "site",
+            "field": "title"
+      }
+},ghostDynamic: {
+      "category": "tags",
+      "source": "routes",
+      "limit": 6,
+      "order": "count.posts desc",
+      "layoutStyle": "grid"
+},styles: {"display":"grid","gridTemplateColumns":"repeat(3, 1fr)"},responsiveStyles: {}})
+},
   {
-    id: 'tags-v3',
-    category: 'tags',
-    variantName: 'Split Category Columns',
-    keywords: ['tags', 'split category columns'],
-    thumbnailPath: 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjgwIiBoZWlnaHQ9IjE1NyIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KICA8cmVjdCB3aWR0aD0iMjgwIiBoZWlnaHQ9IjE1NyIgZmlsbD0iI2Y4ZmFmYyIgLz4KICA8cmVjdCB3aWR0aD0iMjc4IiBoZWlnaHQ9IjE1NSIgeD0iMSIgeT0iMSIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjY2JkNWUxIiBzdHJva2Utd2lkdGg9IjIiIHN0cm9rZS1kYXNoYXJyYXk9IjYgNCIgcng9IjYiIC8+CiAgPHRleHQgeD0iNTAlIiB5PSI0NSUiIGZvbnQtZmFtaWx5PSJzeXN0ZW0tdWksIHNhbnMtc2VyaWYiIGZvbnQtd2VpZ2h0PSI2MDAiIGZvbnQtc2l6ZT0iMTQiIGZpbGw9IiMzMzQxNTUiIHRleHQtYW5jaG9yPSJtaWRkbGUiPlNQTElUIENBVEVHT1JZIENPTFVNTlM8L3RleHQ+CiAgPHRleHQgeD0iNTAlIiB5PSI2MCUiIGZvbnQtZmFtaWx5PSJzeXN0ZW0tdWksIHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTIiIGZpbGw9IiM2NDc0OGIiIHRleHQtYW5jaG9yPSJtaWRkbGUiPlRBR1M8L3RleHQ+Cjwvc3ZnPg==',
-    buildSection: () => ({
-      id: `sec-${Date.now()}-${Math.random().toString(36).substring(7)}`,
-      type: 'tags',
-      name: 'Split Category Columns',
-      props: {
-        col1: { kind: 'static', value: 'Top Tech Posts' },
-        col2: { kind: 'static', value: 'Top Design Posts' }
-      },
-      styles: {"padding":"64px","display":"grid","gridTemplateColumns":"1fr 1fr","gap":"48px"},
-      responsiveStyles: {}
-    })
-  }
+  "id": "tags-v3",
+  "category": "tags",
+  "variantName": "Tag Header for Archive",
+  "keywords": [
+    "tags",
+    "tag header for archive"
+  ],
+  "thumbnailPath": "/preset-thumbnails/tags-tags-v3.svg",
+  "buildSection": () => ({id: `sec-${Date.now()}-${Math.random().toString(36).substring(7)}`,type: "tags",name: "Tag Header for Archive",props: {
+      "dynamicDataTarget": {
+            "kind": "binding",
+            "source": "site",
+            "field": "title"
+      }
+},ghostDynamic: {
+      "category": "tags",
+      "source": "routes",
+      "limit": 1,
+      "order": "count.posts desc",
+      "layoutStyle": "header"
+},styles: {"display":"flex","flexDirection":"column","alignItems":"center"},responsiveStyles: {}})
+},
+  {
+  "id": "tags-v4",
+  "category": "tags",
+  "variantName": "Tag Pills Row",
+  "keywords": [
+    "tags",
+    "tag pills row"
+  ],
+  "thumbnailPath": "/preset-thumbnails/tags-tags-v4.svg",
+  "buildSection": () => ({id: `sec-${Date.now()}-${Math.random().toString(36).substring(7)}`,type: "tags",name: "Tag Pills Row",props: {
+      "dynamicDataTarget": {
+            "kind": "binding",
+            "source": "site",
+            "field": "title"
+      }
+},ghostDynamic: {
+      "category": "tags",
+      "source": "routes",
+      "limit": 10,
+      "order": "count.posts desc",
+      "layoutStyle": "pills"
+},styles: {"display":"flex","overflowX":"auto"},responsiveStyles: {}})
+},
+  {
+  "id": "tags-v5",
+  "category": "tags",
+  "variantName": "Tag List with Featured Post",
+  "keywords": [
+    "tags",
+    "tag list with featured post"
+  ],
+  "thumbnailPath": "/preset-thumbnails/tags-tags-v5.svg",
+  "buildSection": () => ({id: `sec-${Date.now()}-${Math.random().toString(36).substring(7)}`,type: "tags",name: "Tag List with Featured Post",props: {
+      "dynamicDataTarget": {
+            "kind": "binding",
+            "source": "site",
+            "field": "title"
+      }
+},ghostDynamic: {
+      "category": "tags",
+      "source": "routes",
+      "limit": 5,
+      "order": "count.posts desc",
+      "layoutStyle": "list-featured"
+},styles: {"display":"grid","gridTemplateColumns":"1fr 2fr"},responsiveStyles: {}})
+},
+  {
+  "id": "tags-v6",
+  "category": "tags",
+  "variantName": "Category Nav Bar",
+  "keywords": [
+    "tags",
+    "category nav bar"
+  ],
+  "thumbnailPath": "/preset-thumbnails/tags-tags-v6.svg",
+  "buildSection": () => ({id: `sec-${Date.now()}-${Math.random().toString(36).substring(7)}`,type: "tags",name: "Category Nav Bar",props: {
+      "dynamicDataTarget": {
+            "kind": "binding",
+            "source": "site",
+            "field": "title"
+      }
+},ghostDynamic: {
+      "category": "tags",
+      "source": "routes",
+      "limit": 5,
+      "order": "count.posts desc",
+      "layoutStyle": "nav"
+},styles: {"display":"flex","justifyContent":"center"},responsiveStyles: {}})
+},
+  {
+  "id": "tags-v7",
+  "category": "tags",
+  "variantName": "Tag Grid with Cover Images",
+  "keywords": [
+    "tags",
+    "tag grid with cover images"
+  ],
+  "thumbnailPath": "/preset-thumbnails/tags-tags-v7.svg",
+  "buildSection": () => ({id: `sec-${Date.now()}-${Math.random().toString(36).substring(7)}`,type: "tags",name: "Tag Grid with Cover Images",props: {
+      "dynamicDataTarget": {
+            "kind": "binding",
+            "source": "site",
+            "field": "title"
+      }
+},ghostDynamic: {
+      "category": "tags",
+      "source": "routes",
+      "limit": 4,
+      "order": "count.posts desc",
+      "layoutStyle": "grid-cover"
+},styles: {"display":"grid","gridTemplateColumns":"repeat(2, 1fr)"},responsiveStyles: {}})
+},
+  {
+  "id": "tags-v8",
+  "category": "tags",
+  "variantName": "Popular Tags Sidebar",
+  "keywords": [
+    "tags",
+    "popular tags sidebar"
+  ],
+  "thumbnailPath": "/preset-thumbnails/tags-tags-v8.svg",
+  "buildSection": () => ({id: `sec-${Date.now()}-${Math.random().toString(36).substring(7)}`,type: "tags",name: "Popular Tags Sidebar",props: {
+      "dynamicDataTarget": {
+            "kind": "binding",
+            "source": "site",
+            "field": "title"
+      }
+},ghostDynamic: {
+      "category": "tags",
+      "source": "routes",
+      "limit": 5,
+      "order": "count.posts desc",
+      "layoutStyle": "sidebar"
+},styles: {"display":"flex","flexDirection":"column"},responsiveStyles: {}})
+},
+  {
+  "id": "tags-v9",
+  "category": "tags",
+  "variantName": "Tag Filter + Post Grid Combined",
+  "keywords": [
+    "tags",
+    "tag filter   post grid combined"
+  ],
+  "thumbnailPath": "/preset-thumbnails/tags-tags-v9.svg",
+  "buildSection": () => ({id: `sec-${Date.now()}-${Math.random().toString(36).substring(7)}`,type: "tags",name: "Tag Filter + Post Grid Combined",props: {
+      "dynamicDataTarget": {
+            "kind": "binding",
+            "source": "site",
+            "field": "title"
+      }
+},ghostDynamic: {
+      "category": "tags",
+      "source": "routes",
+      "limit": 10,
+      "order": "count.posts desc",
+      "layoutStyle": "filter-grid"
+},styles: {"display":"flex","flexDirection":"column"},responsiveStyles: {}})
+},
+  {
+  "id": "tags-v10",
+  "category": "tags",
+  "variantName": "Minimal Tag List",
+  "keywords": [
+    "tags",
+    "minimal tag list"
+  ],
+  "thumbnailPath": "/preset-thumbnails/tags-tags-v10.svg",
+  "buildSection": () => ({id: `sec-${Date.now()}-${Math.random().toString(36).substring(7)}`,type: "tags",name: "Minimal Tag List",props: {
+      "dynamicDataTarget": {
+            "kind": "binding",
+            "source": "site",
+            "field": "title"
+      }
+},ghostDynamic: {
+      "category": "tags",
+      "source": "routes",
+      "limit": 10,
+      "order": "count.posts desc",
+      "layoutStyle": "minimal"
+},styles: {"display":"flex","flexDirection":"column"},responsiveStyles: {}})
+}
 ];

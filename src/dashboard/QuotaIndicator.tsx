@@ -11,15 +11,10 @@ export const QuotaIndicator: React.FC<Props> = ({ currentCount }) => {
   
   return (
     <div style={{
-      display: 'inline-flex',
-      alignItems: 'center',
-      padding: '4px 12px',
-      backgroundColor: isAtLimit ? '#fef2f2' : '#f1f5f9',
-      color: isAtLimit ? '#ef4444' : '#475569',
-      borderRadius: '9999px',
-      fontSize: '0.875rem',
-      fontWeight: 500,
-      border: `1px solid ${isAtLimit ? '#fecaca' : '#e2e8f0'}`
+      color: isAtLimit ? 'var(--danger)' : 'var(--muted)',
+      fontSize: 'var(--text-sm)',
+      lineHeight: 'var(--text-sm-lh)',
+      fontWeight: 400
     }}>
       {currentCount} / {MAX_PROJECTS} projects used
     </div>

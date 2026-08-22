@@ -24,21 +24,29 @@ function createSchema(allFields: FieldSchema[]): SectionSchema {
 
 export const sectionFieldSchemas: Record<string, SectionSchema> = {
   'hero': createSchema([
-    { name: 'headline', label: 'Headline', type: 'text', tokenEmbeddable: true },
-    { name: 'subheadline', label: 'Subheadline', type: 'text', tokenEmbeddable: true },
-    { name: 'ctaText', label: 'Button Label', type: 'text', tokenEmbeddable: true },
+    { name: 'title', label: 'Headline', type: 'text', tokenEmbeddable: true },
+    { name: 'description', label: 'Subheadline', type: 'text', tokenEmbeddable: true },
+    { name: 'buttonText', label: 'Button Label', type: 'text', tokenEmbeddable: true },
     { name: 'image', label: 'Background Image', type: 'image' },
   ]),
   'header': createSchema([
-    { name: 'logo', label: 'Logo URL', type: 'image' },
-    { name: 'showSubscribe', label: 'Show Subscribe Button', type: 'boolean' },
+    { name: 'logo', label: 'Logo', type: 'text', tokenEmbeddable: true },
+    { name: 'nav', label: 'Navigation Settings', type: 'text', tokenEmbeddable: true },
+    { name: 'search', label: 'Search Action', type: 'text' },
+    { name: 'signin', label: 'Sign In Action', type: 'text' },
+    { name: 'signup', label: 'Sign Up Action', type: 'text' },
   ]),
   'footer': createSchema([
-    { name: 'title', label: 'Footer Title', type: 'text', tokenEmbeddable: true },
-    { name: 'copyright', label: 'Copyright Text', type: 'text', tokenEmbeddable: true },
+    { name: 'logo', label: 'Logo', type: 'text', tokenEmbeddable: true },
+    { name: 'nav', label: 'Navigation Settings', type: 'text', tokenEmbeddable: true },
+    { name: 'copyright', label: 'Copyright', type: 'text', tokenEmbeddable: true },
+    { name: 'social', label: 'Social Links', type: 'text', tokenEmbeddable: true },
+    { name: 'top', label: 'Top Section', type: 'text', tokenEmbeddable: true },
+    { name: 'bottom', label: 'Bottom Section', type: 'text', tokenEmbeddable: true },
   ]),
   'post-grid': createSchema([
     { name: 'title', label: 'Section Title', type: 'text', tokenEmbeddable: true },
+    { name: 'description', label: 'Description', type: 'text', tokenEmbeddable: true },
     { name: 'columns', label: 'Columns', type: 'number' },
     { name: 'showExcerpts', label: 'Show Excerpts', type: 'boolean' },
     { name: 'showAuthor', label: 'Show Author', type: 'boolean' },
@@ -46,22 +54,38 @@ export const sectionFieldSchemas: Record<string, SectionSchema> = {
   ]),
   'post-list': createSchema([
     { name: 'title', label: 'Section Title', type: 'text', tokenEmbeddable: true },
+    { name: 'description', label: 'Description', type: 'text', tokenEmbeddable: true },
     { name: 'showDates', label: 'Show Dates', type: 'boolean' },
     { name: 'showAuthor', label: 'Show Author', type: 'boolean' },
   ]),
   'features-grid': createSchema([
     { name: 'title', label: 'Section Title', type: 'text', tokenEmbeddable: true },
-    { name: 'subtitle', label: 'Subtitle', type: 'text', tokenEmbeddable: true },
+    { name: 'description', label: 'Subtitle', type: 'text', tokenEmbeddable: true },
   ]),
   'cta-banner': createSchema([
-    { name: 'headline', label: 'Headline', type: 'text', tokenEmbeddable: true },
+    { name: 'title', label: 'Headline', type: 'text', tokenEmbeddable: true },
     { name: 'description', label: 'Description', type: 'text', tokenEmbeddable: true },
     { name: 'buttonText', label: 'Button Text', type: 'text', tokenEmbeddable: true },
+  ]),
+  'cta': createSchema([
+    { name: 'title', label: 'Headline', type: 'text', tokenEmbeddable: true },
+    { name: 'description', label: 'Description', type: 'text', tokenEmbeddable: true },
+    { name: 'buttonText', label: 'Button Text', type: 'text', tokenEmbeddable: true },
+  ]),
+  'newsletter': createSchema([
+    { name: 'title', label: 'Headline', type: 'text', tokenEmbeddable: true },
+    { name: 'description', label: 'Description', type: 'text', tokenEmbeddable: true },
+    { name: 'form', label: 'Portal Action', type: 'text', tokenEmbeddable: true },
+  ]),
+  'logo-cloud': createSchema([
+    { name: 'title', label: 'Section Title', type: 'text', tokenEmbeddable: true },
+    { name: 'description', label: 'Description', type: 'text', tokenEmbeddable: true },
   ]),
 };
 
 // Fallback for unknown sections
 export const defaultSchema = createSchema([
   { name: 'title', label: 'Title', type: 'text', tokenEmbeddable: true },
+  { name: 'description', label: 'Description', type: 'text', tokenEmbeddable: true },
   { name: 'content', label: 'Content', type: 'text', tokenEmbeddable: true },
 ]);

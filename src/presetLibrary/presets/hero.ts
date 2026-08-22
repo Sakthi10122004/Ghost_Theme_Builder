@@ -2,57 +2,243 @@ import { SectionPreset } from '../types';
 
 export const heroPresets: SectionPreset[] = [
   {
-    id: 'hero-v1',
-    category: 'hero',
-    variantName: 'Big Typography Editorial',
-    keywords: ['hero', 'big typography editorial'],
-    thumbnailPath: 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjgwIiBoZWlnaHQ9IjE1NyIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KICA8cmVjdCB3aWR0aD0iMjgwIiBoZWlnaHQ9IjE1NyIgZmlsbD0iI2Y4ZmFmYyIgLz4KICA8cmVjdCB3aWR0aD0iMjc4IiBoZWlnaHQ9IjE1NSIgeD0iMSIgeT0iMSIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjY2JkNWUxIiBzdHJva2Utd2lkdGg9IjIiIHN0cm9rZS1kYXNoYXJyYXk9IjYgNCIgcng9IjYiIC8+CiAgPHRleHQgeD0iNTAlIiB5PSI0NSUiIGZvbnQtZmFtaWx5PSJzeXN0ZW0tdWksIHNhbnMtc2VyaWYiIGZvbnQtd2VpZ2h0PSI2MDAiIGZvbnQtc2l6ZT0iMTQiIGZpbGw9IiMzMzQxNTUiIHRleHQtYW5jaG9yPSJtaWRkbGUiPkJJRyBUWVBPR1JBUEhZIEVESVRPUklBTDwvdGV4dD4KICA8dGV4dCB4PSI1MCUiIHk9IjYwJSIgZm9udC1mYW1pbHk9InN5c3RlbS11aSwgc2Fucy1zZXJpZiIgZm9udC1zaXplPSIxMiIgZmlsbD0iIzY0NzQ4YiIgdGV4dC1hbmNob3I9Im1pZGRsZSI+SEVSTzwvdGV4dD4KPC9zdmc+',
-    buildSection: () => ({
-      id: `sec-${Date.now()}-${Math.random().toString(36).substring(7)}`,
-      type: 'hero',
-      name: 'Big Typography Editorial',
-      props: {
-        heading: { kind: 'static', value: 'Thoughts, stories, and ideas.' },
-        form: { kind: 'static', value: 'Email Input ->' }
+  "id": "hero-v1",
+  "category": "hero",
+  "variantName": "Centered Intro",
+  "keywords": [
+    "hero",
+    "centered intro"
+  ],
+  "thumbnailPath": "/preset-thumbnails/hero-hero-v1.svg",
+  "buildSection": () => ({id: `sec-${Date.now()}-${Math.random().toString(36).substring(7)}`,type: "hero",name: "Centered Intro",props: {
+      "title": {
+            "kind": "static",
+            "value": "Sample Centered Intro"
       },
-      styles: {"padding":"96px 24px","backgroundColor":"#ffffff","display":"flex","flexDirection":"column","alignItems":"center","textAlign":"center","gap":"24px"},
-      responsiveStyles: {}
-    })
-  },
+      "description": {
+            "kind": "static",
+            "value": "This is a beautiful hero section."
+      }
+},styles: {"display":"flex","flexDirection":"column","alignItems":"center","textAlign":"center","padding":"96px 24px"},responsiveStyles: {}})
+},
   {
-    id: 'hero-v2',
-    category: 'hero',
-    variantName: 'Split Creator Hero',
-    keywords: ['hero', 'split creator hero'],
-    thumbnailPath: 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjgwIiBoZWlnaHQ9IjE1NyIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KICA8cmVjdCB3aWR0aD0iMjgwIiBoZWlnaHQ9IjE1NyIgZmlsbD0iI2Y4ZmFmYyIgLz4KICA8cmVjdCB3aWR0aD0iMjc4IiBoZWlnaHQ9IjE1NSIgeD0iMSIgeT0iMSIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjY2JkNWUxIiBzdHJva2Utd2lkdGg9IjIiIHN0cm9rZS1kYXNoYXJyYXk9IjYgNCIgcng9IjYiIC8+CiAgPHRleHQgeD0iNTAlIiB5PSI0NSUiIGZvbnQtZmFtaWx5PSJzeXN0ZW0tdWksIHNhbnMtc2VyaWYiIGZvbnQtd2VpZ2h0PSI2MDAiIGZvbnQtc2l6ZT0iMTQiIGZpbGw9IiMzMzQxNTUiIHRleHQtYW5jaG9yPSJtaWRkbGUiPlNQTElUIENSRUFUT1IgSEVSTzwvdGV4dD4KICA8dGV4dCB4PSI1MCUiIHk9IjYwJSIgZm9udC1mYW1pbHk9InN5c3RlbS11aSwgc2Fucy1zZXJpZiIgZm9udC1zaXplPSIxMiIgZmlsbD0iIzY0NzQ4YiIgdGV4dC1hbmNob3I9Im1pZGRsZSI+SEVSTzwvdGV4dD4KPC9zdmc+',
-    buildSection: () => ({
-      id: `sec-${Date.now()}-${Math.random().toString(36).substring(7)}`,
-      type: 'hero',
-      name: 'Split Creator Hero',
-      props: {
-        col1: { kind: 'static', value: 'Publication Tagline & CTA' },
-        col2: { kind: 'static', value: 'Featured Post Cover Image' }
+  "id": "hero-v2",
+  "category": "hero",
+  "variantName": "About with Image Left",
+  "keywords": [
+    "hero",
+    "about with image left"
+  ],
+  "thumbnailPath": "/preset-thumbnails/hero-hero-v2.svg",
+  "buildSection": () => ({id: `sec-${Date.now()}-${Math.random().toString(36).substring(7)}`,type: "hero",name: "About with Image Left",props: {
+      "title": {
+            "kind": "static",
+            "value": "Sample About with Image Left"
       },
-      styles: {"padding":"64px","backgroundColor":"#f8fafc","display":"grid","gridTemplateColumns":"1fr 1fr","gap":"48px","alignItems":"center"},
-      responsiveStyles: {}
-    })
-  },
+      "description": {
+            "kind": "static",
+            "value": "This is a beautiful hero section."
+      }
+},styles: {"display":"grid","gridTemplateColumns":"1fr 1fr","gap":"48px","padding":"64px","alignItems":"center"},responsiveStyles: {}})
+},
   {
-    id: 'hero-v3',
-    category: 'hero',
-    variantName: 'Minimalist Search',
-    keywords: ['hero', 'minimalist search'],
-    thumbnailPath: 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjgwIiBoZWlnaHQ9IjE1NyIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KICA8cmVjdCB3aWR0aD0iMjgwIiBoZWlnaHQ9IjE1NyIgZmlsbD0iI2Y4ZmFmYyIgLz4KICA8cmVjdCB3aWR0aD0iMjc4IiBoZWlnaHQ9IjE1NSIgeD0iMSIgeT0iMSIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjY2JkNWUxIiBzdHJva2Utd2lkdGg9IjIiIHN0cm9rZS1kYXNoYXJyYXk9IjYgNCIgcng9IjYiIC8+CiAgPHRleHQgeD0iNTAlIiB5PSI0NSUiIGZvbnQtZmFtaWx5PSJzeXN0ZW0tdWksIHNhbnMtc2VyaWYiIGZvbnQtd2VpZ2h0PSI2MDAiIGZvbnQtc2l6ZT0iMTQiIGZpbGw9IiMzMzQxNTUiIHRleHQtYW5jaG9yPSJtaWRkbGUiPk1JTklNQUxJU1QgU0VBUkNIPC90ZXh0PgogIDx0ZXh0IHg9IjUwJSIgeT0iNjAlIiBmb250LWZhbWlseT0ic3lzdGVtLXVpLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjEyIiBmaWxsPSIjNjQ3NDhiIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIj5IRVJPPC90ZXh0Pgo8L3N2Zz4=',
-    buildSection: () => ({
-      id: `sec-${Date.now()}-${Math.random().toString(36).substring(7)}`,
-      type: 'hero',
-      name: 'Minimalist Search',
-      props: {
-        title: { kind: 'static', value: 'Find what you are looking for.' },
-        search: { kind: 'static', value: '[ Ghost SodoSearch Bar ]' }
+  "id": "hero-v3",
+  "category": "hero",
+  "variantName": "About with Image Right",
+  "keywords": [
+    "hero",
+    "about with image right"
+  ],
+  "thumbnailPath": "/preset-thumbnails/hero-hero-v3.svg",
+  "buildSection": () => ({id: `sec-${Date.now()}-${Math.random().toString(36).substring(7)}`,type: "hero",name: "About with Image Right",props: {
+      "title": {
+            "kind": "static",
+            "value": "Sample About with Image Right"
       },
-      styles: {"padding":"80px 24px","backgroundColor":"#0f172a","color":"#ffffff","display":"flex","flexDirection":"column","alignItems":"center","gap":"32px"},
-      responsiveStyles: {}
-    })
-  }
+      "description": {
+            "kind": "static",
+            "value": "This is a beautiful hero section."
+      }
+},styles: {"display":"grid","gridTemplateColumns":"1fr 1fr","gap":"48px","padding":"64px","alignItems":"center"},responsiveStyles: {}})
+},
+  {
+  "id": "hero-v4",
+  "category": "hero",
+  "variantName": "About Stacked",
+  "keywords": [
+    "hero",
+    "about stacked"
+  ],
+  "thumbnailPath": "/preset-thumbnails/hero-hero-v4.svg",
+  "buildSection": () => ({id: `sec-${Date.now()}-${Math.random().toString(36).substring(7)}`,type: "hero",name: "About Stacked",props: {
+      "title": {
+            "kind": "static",
+            "value": "Sample About Stacked"
+      },
+      "description": {
+            "kind": "static",
+            "value": "This is a beautiful hero section."
+      }
+},styles: {"display":"flex","flexDirection":"column","alignItems":"center","padding":"64px"},responsiveStyles: {}})
+},
+  {
+  "id": "hero-v5",
+  "category": "hero",
+  "variantName": "Screenshot with CTAs",
+  "keywords": [
+    "hero",
+    "screenshot with ctas"
+  ],
+  "thumbnailPath": "/preset-thumbnails/hero-hero-v5.svg",
+  "buildSection": () => ({id: `sec-${Date.now()}-${Math.random().toString(36).substring(7)}`,type: "hero",name: "Screenshot with CTAs",props: {
+      "title": {
+            "kind": "static",
+            "value": "Sample Screenshot with CTAs"
+      },
+      "description": {
+            "kind": "static",
+            "value": "This is a beautiful hero section."
+      }
+},styles: {"display":"flex","flexDirection":"column","alignItems":"center","gap":"32px","padding":"64px"},responsiveStyles: {}})
+},
+  {
+  "id": "hero-v6",
+  "category": "hero",
+  "variantName": "Left Image Plus Highlights",
+  "keywords": [
+    "hero",
+    "left image plus highlights"
+  ],
+  "thumbnailPath": "/preset-thumbnails/hero-hero-v6.svg",
+  "buildSection": () => ({id: `sec-${Date.now()}-${Math.random().toString(36).substring(7)}`,type: "hero",name: "Left Image Plus Highlights",props: {
+      "title": {
+            "kind": "static",
+            "value": "Sample Left Image Plus Highlights"
+      },
+      "description": {
+            "kind": "static",
+            "value": "This is a beautiful hero section."
+      }
+},styles: {"display":"grid","gridTemplateColumns":"1fr 1fr","gap":"48px","padding":"48px","alignItems":"center"},responsiveStyles: {}})
+},
+  {
+  "id": "hero-v7",
+  "category": "hero",
+  "variantName": "Background Image Centered",
+  "keywords": [
+    "hero",
+    "background image centered"
+  ],
+  "thumbnailPath": "/preset-thumbnails/hero-hero-v7.svg",
+  "buildSection": () => ({id: `sec-${Date.now()}-${Math.random().toString(36).substring(7)}`,type: "hero",name: "Background Image Centered",props: {
+      "title": {
+            "kind": "static",
+            "value": "Sample Background Image Centered"
+      },
+      "description": {
+            "kind": "static",
+            "value": "This is a beautiful hero section."
+      }
+},styles: {"display":"flex","flexDirection":"column","alignItems":"center","padding":"120px 48px","color":"white","background":"#333"},responsiveStyles: {}})
+},
+  {
+  "id": "hero-v8",
+  "category": "hero",
+  "variantName": "Background Image Bottom Left",
+  "keywords": [
+    "hero",
+    "background image bottom left"
+  ],
+  "thumbnailPath": "/preset-thumbnails/hero-hero-v8.svg",
+  "buildSection": () => ({id: `sec-${Date.now()}-${Math.random().toString(36).substring(7)}`,type: "hero",name: "Background Image Bottom Left",props: {
+      "title": {
+            "kind": "static",
+            "value": "Sample Background Image Bottom Left"
+      },
+      "description": {
+            "kind": "static",
+            "value": "This is a beautiful hero section."
+      }
+},styles: {"display":"flex","flexDirection":"column","justifyContent":"flex-end","padding":"120px 48px","color":"white","background":"#333"},responsiveStyles: {}})
+},
+  {
+  "id": "hero-v9",
+  "category": "hero",
+  "variantName": "Search-Focused",
+  "keywords": [
+    "hero",
+    "search focused"
+  ],
+  "thumbnailPath": "/preset-thumbnails/hero-hero-v9.svg",
+  "buildSection": () => ({id: `sec-${Date.now()}-${Math.random().toString(36).substring(7)}`,type: "hero",name: "Search-Focused",props: {
+      "title": {
+            "kind": "static",
+            "value": "Sample Search-Focused"
+      },
+      "description": {
+            "kind": "static",
+            "value": "This is a beautiful hero section."
+      }
+},styles: {"display":"flex","flexDirection":"column","alignItems":"center","padding":"96px 24px"},responsiveStyles: {}})
+},
+  {
+  "id": "hero-v10",
+  "category": "hero",
+  "variantName": "Social-Focused",
+  "keywords": [
+    "hero",
+    "social focused"
+  ],
+  "thumbnailPath": "/preset-thumbnails/hero-hero-v10.svg",
+  "buildSection": () => ({id: `sec-${Date.now()}-${Math.random().toString(36).substring(7)}`,type: "hero",name: "Social-Focused",props: {
+      "title": {
+            "kind": "static",
+            "value": "Sample Social-Focused"
+      },
+      "description": {
+            "kind": "static",
+            "value": "This is a beautiful hero section."
+      }
+},styles: {"display":"flex","flexDirection":"column","alignItems":"center","padding":"96px 24px"},responsiveStyles: {}})
+},
+  {
+  "id": "hero-v11",
+  "category": "hero",
+  "variantName": "Newsletter Welcome",
+  "keywords": [
+    "hero",
+    "newsletter welcome"
+  ],
+  "thumbnailPath": "/preset-thumbnails/hero-hero-v11.svg",
+  "buildSection": () => ({id: `sec-${Date.now()}-${Math.random().toString(36).substring(7)}`,type: "hero",name: "Newsletter Welcome",props: {
+      "title": {
+            "kind": "static",
+            "value": "Sample Newsletter Welcome"
+      },
+      "description": {
+            "kind": "static",
+            "value": "This is a beautiful hero section."
+      }
+},styles: {"display":"flex","flexDirection":"column","alignItems":"center","padding":"96px 24px"},responsiveStyles: {}})
+},
+  {
+  "id": "hero-v12",
+  "category": "hero",
+  "variantName": "Product Launch Announcement",
+  "keywords": [
+    "hero",
+    "product launch announcement"
+  ],
+  "thumbnailPath": "/preset-thumbnails/hero-hero-v12.svg",
+  "buildSection": () => ({id: `sec-${Date.now()}-${Math.random().toString(36).substring(7)}`,type: "hero",name: "Product Launch Announcement",props: {
+      "title": {
+            "kind": "static",
+            "value": "Sample Product Launch Announcement"
+      },
+      "description": {
+            "kind": "static",
+            "value": "This is a beautiful hero section."
+      }
+},styles: {"display":"flex","justifyContent":"space-between","alignItems":"center","padding":"64px"},responsiveStyles: {}})
+}
 ];

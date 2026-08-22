@@ -2,58 +2,203 @@ import { SectionPreset } from '../types';
 
 export const statsPresets: SectionPreset[] = [
   {
-    id: 'stats-v1',
-    category: 'stats',
-    variantName: '4-Column Big Numbers',
-    keywords: ['stats', '4-column big numbers'],
-    thumbnailPath: 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjgwIiBoZWlnaHQ9IjE1NyIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KICA8cmVjdCB3aWR0aD0iMjgwIiBoZWlnaHQ9IjE1NyIgZmlsbD0iI2Y4ZmFmYyIgLz4KICA8cmVjdCB3aWR0aD0iMjc4IiBoZWlnaHQ9IjE1NSIgeD0iMSIgeT0iMSIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjY2JkNWUxIiBzdHJva2Utd2lkdGg9IjIiIHN0cm9rZS1kYXNoYXJyYXk9IjYgNCIgcng9IjYiIC8+CiAgPHRleHQgeD0iNTAlIiB5PSI0NSUiIGZvbnQtZmFtaWx5PSJzeXN0ZW0tdWksIHNhbnMtc2VyaWYiIGZvbnQtd2VpZ2h0PSI2MDAiIGZvbnQtc2l6ZT0iMTQiIGZpbGw9IiMzMzQxNTUiIHRleHQtYW5jaG9yPSJtaWRkbGUiPjQtQ09MVU1OIEJJRyBOVU1CRVJTPC90ZXh0PgogIDx0ZXh0IHg9IjUwJSIgeT0iNjAlIiBmb250LWZhbWlseT0ic3lzdGVtLXVpLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjEyIiBmaWxsPSIjNjQ3NDhiIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIj5TVEFUUzwvdGV4dD4KPC9zdmc+',
-    buildSection: () => ({
-      id: `sec-${Date.now()}-${Math.random().toString(36).substring(7)}`,
-      type: 'stats',
-      name: '4-Column Big Numbers',
-      props: {
-        s1: { kind: 'static', value: '15k+ Subs' },
-        s2: { kind: 'static', value: '200+ Posts' },
-        s3: { kind: 'static', value: '50+ Authors' },
-        s4: { kind: 'static', value: '100% Free' }
+  "id": "stats-v1",
+  "category": "stats",
+  "variantName": "At a Glance",
+  "keywords": [
+    "stats",
+    "at a glance"
+  ],
+  "thumbnailPath": "/preset-thumbnails/stats-stats-v1.svg",
+  "buildSection": () => ({id: `sec-${Date.now()}-${Math.random().toString(36).substring(7)}`,type: "stats",name: "At a Glance",props: {
+      "title": {
+            "kind": "static",
+            "value": "Sample At a Glance"
       },
-      styles: {"padding":"64px","display":"grid","gridTemplateColumns":"repeat(4, 1fr)","gap":"24px","textAlign":"center"},
-      responsiveStyles: {}
-    })
-  },
+      "description": {
+            "kind": "static",
+            "value": "This is a beautiful stats section."
+      }
+},styles: {"display":"grid","gridTemplateColumns":"repeat(4, 1fr)","gap":"24px","padding":"64px","textAlign":"center"},responsiveStyles: {}})
+},
   {
-    id: 'stats-v2',
-    category: 'stats',
-    variantName: 'Progress Bar Badges',
-    keywords: ['stats', 'progress bar badges'],
-    thumbnailPath: 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjgwIiBoZWlnaHQ9IjE1NyIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KICA8cmVjdCB3aWR0aD0iMjgwIiBoZWlnaHQ9IjE1NyIgZmlsbD0iI2Y4ZmFmYyIgLz4KICA8cmVjdCB3aWR0aD0iMjc4IiBoZWlnaHQ9IjE1NSIgeD0iMSIgeT0iMSIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjY2JkNWUxIiBzdHJva2Utd2lkdGg9IjIiIHN0cm9rZS1kYXNoYXJyYXk9IjYgNCIgcng9IjYiIC8+CiAgPHRleHQgeD0iNTAlIiB5PSI0NSUiIGZvbnQtZmFtaWx5PSJzeXN0ZW0tdWksIHNhbnMtc2VyaWYiIGZvbnQtd2VpZ2h0PSI2MDAiIGZvbnQtc2l6ZT0iMTQiIGZpbGw9IiMzMzQxNTUiIHRleHQtYW5jaG9yPSJtaWRkbGUiPlBST0dSRVNTIEJBUiBCQURHRVM8L3RleHQ+CiAgPHRleHQgeD0iNTAlIiB5PSI2MCUiIGZvbnQtZmFtaWx5PSJzeXN0ZW0tdWksIHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTIiIGZpbGw9IiM2NDc0OGIiIHRleHQtYW5jaG9yPSJtaWRkbGUiPlNUQVRTPC90ZXh0Pgo8L3N2Zz4=',
-    buildSection: () => ({
-      id: `sec-${Date.now()}-${Math.random().toString(36).substring(7)}`,
-      type: 'stats',
-      name: 'Progress Bar Badges',
-      props: {
-        b1: { kind: 'static', value: 'Milestone 1' },
-        b2: { kind: 'static', value: 'Milestone 2' }
+  "id": "stats-v2",
+  "category": "stats",
+  "variantName": "Headline Plus Metrics",
+  "keywords": [
+    "stats",
+    "headline plus metrics"
+  ],
+  "thumbnailPath": "/preset-thumbnails/stats-stats-v2.svg",
+  "buildSection": () => ({id: `sec-${Date.now()}-${Math.random().toString(36).substring(7)}`,type: "stats",name: "Headline Plus Metrics",props: {
+      "title": {
+            "kind": "static",
+            "value": "Sample Headline Plus Metrics"
       },
-      styles: {"padding":"48px","maxWidth":"600px","margin":"0 auto","display":"flex","flexDirection":"column","gap":"24px"},
-      responsiveStyles: {}
-    })
-  },
+      "description": {
+            "kind": "static",
+            "value": "This is a beautiful stats section."
+      }
+},styles: {"display":"grid","gridTemplateColumns":"repeat(4, 1fr)","gap":"32px","padding":"64px","textAlign":"center"},responsiveStyles: {}})
+},
   {
-    id: 'stats-v3',
-    category: 'stats',
-    variantName: 'Dark Contrast Banner',
-    keywords: ['stats', 'dark contrast banner'],
-    thumbnailPath: 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjgwIiBoZWlnaHQ9IjE1NyIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KICA8cmVjdCB3aWR0aD0iMjgwIiBoZWlnaHQ9IjE1NyIgZmlsbD0iI2Y4ZmFmYyIgLz4KICA8cmVjdCB3aWR0aD0iMjc4IiBoZWlnaHQ9IjE1NSIgeD0iMSIgeT0iMSIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjY2JkNWUxIiBzdHJva2Utd2lkdGg9IjIiIHN0cm9rZS1kYXNoYXJyYXk9IjYgNCIgcng9IjYiIC8+CiAgPHRleHQgeD0iNTAlIiB5PSI0NSUiIGZvbnQtZmFtaWx5PSJzeXN0ZW0tdWksIHNhbnMtc2VyaWYiIGZvbnQtd2VpZ2h0PSI2MDAiIGZvbnQtc2l6ZT0iMTQiIGZpbGw9IiMzMzQxNTUiIHRleHQtYW5jaG9yPSJtaWRkbGUiPkRBUksgQ09OVFJBU1QgQkFOTkVSPC90ZXh0PgogIDx0ZXh0IHg9IjUwJSIgeT0iNjAlIiBmb250LWZhbWlseT0ic3lzdGVtLXVpLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjEyIiBmaWxsPSIjNjQ3NDhiIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIj5TVEFUUzwvdGV4dD4KPC9zdmc+',
-    buildSection: () => ({
-      id: `sec-${Date.now()}-${Math.random().toString(36).substring(7)}`,
-      type: 'stats',
-      name: 'Dark Contrast Banner',
-      props: {
-        stats: { kind: 'static', value: 'Glowing Numbers' }
+  "id": "stats-v3",
+  "category": "stats",
+  "variantName": "Proof Points",
+  "keywords": [
+    "stats",
+    "proof points"
+  ],
+  "thumbnailPath": "/preset-thumbnails/stats-stats-v3.svg",
+  "buildSection": () => ({id: `sec-${Date.now()}-${Math.random().toString(36).substring(7)}`,type: "stats",name: "Proof Points",props: {
+      "title": {
+            "kind": "static",
+            "value": "Sample Proof Points"
       },
-      styles: {"padding":"64px","backgroundColor":"#020617","color":"#38bdf8","display":"flex","justifyContent":"space-around"},
-      responsiveStyles: {}
-    })
-  }
+      "description": {
+            "kind": "static",
+            "value": "This is a beautiful stats section."
+      }
+},styles: {"display":"grid","gridTemplateColumns":"repeat(4, 1fr)","gap":"24px","padding":"48px","textAlign":"center"},responsiveStyles: {}})
+},
+  {
+  "id": "stats-v4",
+  "category": "stats",
+  "variantName": "Bordered Cards",
+  "keywords": [
+    "stats",
+    "bordered cards"
+  ],
+  "thumbnailPath": "/preset-thumbnails/stats-stats-v4.svg",
+  "buildSection": () => ({id: `sec-${Date.now()}-${Math.random().toString(36).substring(7)}`,type: "stats",name: "Bordered Cards",props: {
+      "title": {
+            "kind": "static",
+            "value": "Sample Bordered Cards"
+      },
+      "description": {
+            "kind": "static",
+            "value": "This is a beautiful stats section."
+      }
+},styles: {"display":"grid","gridTemplateColumns":"repeat(3, 1fr)","gap":"32px","padding":"64px"},responsiveStyles: {}})
+},
+  {
+  "id": "stats-v5",
+  "category": "stats",
+  "variantName": "Steps 2x2",
+  "keywords": [
+    "stats",
+    "steps 2x2"
+  ],
+  "thumbnailPath": "/preset-thumbnails/stats-stats-v5.svg",
+  "buildSection": () => ({id: `sec-${Date.now()}-${Math.random().toString(36).substring(7)}`,type: "stats",name: "Steps 2x2",props: {
+      "title": {
+            "kind": "static",
+            "value": "Sample Steps 2x2"
+      },
+      "description": {
+            "kind": "static",
+            "value": "This is a beautiful stats section."
+      }
+},styles: {"display":"grid","gridTemplateColumns":"1fr 1fr","gap":"32px","padding":"64px"},responsiveStyles: {}})
+},
+  {
+  "id": "stats-v6",
+  "category": "stats",
+  "variantName": "Headline-less Minimal Row",
+  "keywords": [
+    "stats",
+    "headline less minimal row"
+  ],
+  "thumbnailPath": "/preset-thumbnails/stats-stats-v6.svg",
+  "buildSection": () => ({id: `sec-${Date.now()}-${Math.random().toString(36).substring(7)}`,type: "stats",name: "Headline-less Minimal Row",props: {
+      "title": {
+            "kind": "static",
+            "value": "Sample Headline-less Minimal Row"
+      },
+      "description": {
+            "kind": "static",
+            "value": "This is a beautiful stats section."
+      }
+},styles: {"display":"flex","justifyContent":"space-around","padding":"48px"},responsiveStyles: {}})
+},
+  {
+  "id": "stats-v7",
+  "category": "stats",
+  "variantName": "Editorial Impact",
+  "keywords": [
+    "stats",
+    "editorial impact"
+  ],
+  "thumbnailPath": "/preset-thumbnails/stats-stats-v7.svg",
+  "buildSection": () => ({id: `sec-${Date.now()}-${Math.random().toString(36).substring(7)}`,type: "stats",name: "Editorial Impact",props: {
+      "title": {
+            "kind": "static",
+            "value": "Sample Editorial Impact"
+      },
+      "description": {
+            "kind": "static",
+            "value": "This is a beautiful stats section."
+      }
+},styles: {"display":"flex","justifyContent":"space-between","padding":"64px","borderTop":"2px solid #e2e8f0","borderBottom":"2px solid #e2e8f0"},responsiveStyles: {}})
+},
+  {
+  "id": "stats-v8",
+  "category": "stats",
+  "variantName": "Case Study Results",
+  "keywords": [
+    "stats",
+    "case study results"
+  ],
+  "thumbnailPath": "/preset-thumbnails/stats-stats-v8.svg",
+  "buildSection": () => ({id: `sec-${Date.now()}-${Math.random().toString(36).substring(7)}`,type: "stats",name: "Case Study Results",props: {
+      "title": {
+            "kind": "static",
+            "value": "Sample Case Study Results"
+      },
+      "description": {
+            "kind": "static",
+            "value": "This is a beautiful stats section."
+      }
+},styles: {"display":"grid","gridTemplateColumns":"repeat(3, 1fr)","gap":"48px","padding":"64px"},responsiveStyles: {}})
+},
+  {
+  "id": "stats-v9",
+  "category": "stats",
+  "variantName": "Operations Dashboard",
+  "keywords": [
+    "stats",
+    "operations dashboard"
+  ],
+  "thumbnailPath": "/preset-thumbnails/stats-stats-v9.svg",
+  "buildSection": () => ({id: `sec-${Date.now()}-${Math.random().toString(36).substring(7)}`,type: "stats",name: "Operations Dashboard",props: {
+      "title": {
+            "kind": "static",
+            "value": "Sample Operations Dashboard"
+      },
+      "description": {
+            "kind": "static",
+            "value": "This is a beautiful stats section."
+      }
+},styles: {"display":"grid","gridTemplateColumns":"repeat(4, 1fr)","gap":"24px","padding":"64px","background":"#f1f5f9"},responsiveStyles: {}})
+},
+  {
+  "id": "stats-v10",
+  "category": "stats",
+  "variantName": "Blur Cards",
+  "keywords": [
+    "stats",
+    "blur cards"
+  ],
+  "thumbnailPath": "/preset-thumbnails/stats-stats-v10.svg",
+  "buildSection": () => ({id: `sec-${Date.now()}-${Math.random().toString(36).substring(7)}`,type: "stats",name: "Blur Cards",props: {
+      "title": {
+            "kind": "static",
+            "value": "Sample Blur Cards"
+      },
+      "description": {
+            "kind": "static",
+            "value": "This is a beautiful stats section."
+      }
+},styles: {"display":"grid","gridTemplateColumns":"repeat(3, 1fr)","gap":"32px","padding":"64px","background":"#0f172a"},responsiveStyles: {}})
+}
 ];

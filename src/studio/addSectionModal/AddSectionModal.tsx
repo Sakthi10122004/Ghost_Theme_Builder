@@ -46,22 +46,22 @@ export const AddSectionModal: React.FC = () => {
   return (
     <div style={{
       position: 'fixed', inset: 0, zIndex: 100,
-      backgroundColor: 'rgba(15, 23, 42, 0.4)', backdropFilter: 'blur(4px)',
+      backgroundColor: 'rgba(28, 27, 31, 0.4)', backdropFilter: 'blur(4px)',
       display: 'flex', alignItems: 'center', justifyContent: 'center'
     }}>
       <div style={{
         width: '90vw', maxWidth: '1200px', height: '85vh',
-        backgroundColor: 'white', borderRadius: '12px',
-        boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.25)',
+        backgroundColor: 'var(--surface)', borderRadius: 'var(--radius-md)',
+        boxShadow: 'var(--shadow-modal)',
         display: 'flex', flexDirection: 'column', overflow: 'hidden'
       }}>
         
         {/* Header */}
-        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '20px 24px', borderBottom: '1px solid #e2e8f0' }}>
-          <h2 style={{ margin: 0, fontSize: '1.25rem', fontWeight: 600, color: '#0f172a' }}>Section Library</h2>
+        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: 'var(--space-16) var(--space-24)', borderBottom: '1px solid var(--line)' }}>
+          <h2 className="heading-display" style={{ margin: 0, fontSize: 'var(--text-xl)', lineHeight: 'var(--text-xl-lh)', fontWeight: 600, color: 'var(--ink)' }}>Section Library</h2>
           <button 
             onClick={() => setIsOpen(false)}
-            style={{ background: 'transparent', border: 'none', cursor: 'pointer', color: '#64748b', padding: '4px' }}
+            style={{ background: 'transparent', border: 'none', cursor: 'pointer', color: 'var(--muted)', padding: 'var(--space-4)' }}
           >
             <X size={24} />
           </button>

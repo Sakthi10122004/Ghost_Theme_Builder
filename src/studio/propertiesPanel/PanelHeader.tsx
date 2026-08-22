@@ -7,19 +7,20 @@ interface Props {
 
 export const PanelHeader: React.FC<Props> = ({ section }) => {
   return (
-    <div style={{ padding: '24px 16px', borderBottom: '1px solid #e2e8f0', backgroundColor: '#f8fafc' }}>
-      <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '8px' }}>
-        <h2 style={{ margin: 0, fontSize: '1.125rem', fontWeight: 700, color: '#0f172a' }}>
+    <div style={{ padding: 'var(--space-24) var(--space-16)', borderBottom: '1px solid var(--line)', backgroundColor: 'var(--paper)' }}>
+      <div style={{ display: 'flex', alignItems: 'center', gap: 'var(--space-8)', marginBottom: 'var(--space-8)' }}>
+        <h2 className="heading-display" style={{ margin: 0, fontSize: 'var(--text-lg)', lineHeight: 'var(--text-lg-lh)', fontWeight: 600, color: 'var(--ink)' }}>
           {section.name}
         </h2>
         {section.ghostDynamic && (
-          <span style={{
-            backgroundColor: '#e2e8f0',
-            color: '#475569',
-            fontSize: '0.6875rem',
+          <span className="font-mono" style={{
+            backgroundColor: 'var(--line)',
+            color: 'var(--muted)',
+            fontSize: 'var(--text-xs)',
+            lineHeight: 'var(--text-xs-lh)',
             fontWeight: 600,
             padding: '2px 8px',
-            borderRadius: '12px',
+            borderRadius: 'var(--radius-sm)',
             textTransform: 'uppercase',
             letterSpacing: '0.05em'
           }}>
@@ -27,7 +28,7 @@ export const PanelHeader: React.FC<Props> = ({ section }) => {
           </span>
         )}
       </div>
-      <p style={{ margin: 0, fontSize: '0.8125rem', color: '#64748b' }}>
+      <p style={{ margin: 0, fontSize: 'var(--text-sm)', lineHeight: 'var(--text-sm-lh)', color: 'var(--muted)' }}>
         Configure this {section.type} section.
       </p>
     </div>

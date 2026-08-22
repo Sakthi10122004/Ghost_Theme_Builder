@@ -10,7 +10,7 @@ export const TemplatesTab: React.FC = () => {
   const setSelection = useEditorStore((state) => state.setSelection);
 
   // Core set of templates that are always shown if available
-  const CORE_TEMPLATES = ['index', 'post', 'page', 'tag', 'author'];
+  const CORE_TEMPLATES = ['index', 'post', 'page', 'tag', 'author', 'error'];
   
   // Group templates: Core vs Custom/Error
   const templates = present.templates || [];

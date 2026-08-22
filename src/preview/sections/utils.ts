@@ -17,6 +17,19 @@ export function resolvePropValue(prop: PropValue | undefined): any {
     return `[${prop.source}.${prop.field}]`; // Placeholder for Ghost data
   }
 
+  if (prop.kind === 'portal') {
+    return React.createElement('a', {
+      href: `#/${prop.action}`,
+      'data-portal': prop.action.includes('form') ? undefined : prop.action,
+      'data-members-form': prop.action.includes('form') ? prop.action.replace('members-form=', '').replace(/"/g, '') : undefined,
+      style: { padding: '8px 16px', background: '#000', color: '#fff', borderRadius: '4px', textDecoration: 'none' }
+    }, prop.label);
+  }
+
+  if (prop.kind === 'navigation') {
+    return React.createElement('nav', {}, `[Navigation: ${prop.variant}]`);
+  }
+
   if (prop.kind === 'rich') {
     return prop.parts.map(p => 
       p.kind === 'text' ? p.value : `[${p.binding.source}.${p.binding.field}]`

@@ -13,7 +13,7 @@ export const AccordionGroup: React.FC<Props> = ({ id, title, children }) => {
   const setAccordionOpen = useEditorStore((state) => state.setAccordionOpen);
 
   return (
-    <div style={{ borderBottom: '1px solid #e2e8f0' }}>
+    <div style={{ borderBottom: '1px solid var(--line)' }}>
       <button
         onClick={() => setAccordionOpen(id, !isOpen)}
         style={{
@@ -21,23 +21,23 @@ export const AccordionGroup: React.FC<Props> = ({ id, title, children }) => {
           display: 'flex',
           justifyContent: 'space-between',
           alignItems: 'center',
-          padding: '16px',
+          padding: 'var(--space-16)',
           backgroundColor: 'transparent',
           border: 'none',
           cursor: 'pointer',
           textAlign: 'left'
         }}
       >
-        <span style={{ fontSize: '0.875rem', fontWeight: 600, color: '#0f172a' }}>{title}</span>
+        <span style={{ fontSize: 'var(--text-sm)', lineHeight: 'var(--text-sm-lh)', fontWeight: 600, color: 'var(--ink)' }}>{title}</span>
         {isOpen ? (
-          <ChevronDown size={18} color="#64748b" />
+          <ChevronDown size={18} color="var(--muted)" />
         ) : (
-          <ChevronRight size={18} color="#64748b" />
+          <ChevronRight size={18} color="var(--muted)" />
         )}
       </button>
       
       {isOpen && (
-        <div style={{ padding: '0 16px 24px 16px' }}>
+        <div style={{ padding: '0 var(--space-16) var(--space-24) var(--space-16)' }}>
           {children}
         </div>
       )}

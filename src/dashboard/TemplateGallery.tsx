@@ -33,6 +33,26 @@ const emptyAst: ThemeProject = {
       id: 'tpl-post',
       type: 'post',
       sections: []
+    },
+    {
+      id: 'tpl-page',
+      type: 'page',
+      sections: []
+    },
+    {
+      id: 'tpl-tag',
+      type: 'tag',
+      sections: []
+    },
+    {
+      id: 'tpl-author',
+      type: 'author',
+      sections: []
+    },
+    {
+      id: 'tpl-error',
+      type: 'error',
+      sections: []
     }
   ]
 };

@@ -2,57 +2,263 @@ import { SectionPreset } from '../types';
 
 export const featuresPresets: SectionPreset[] = [
   {
-    id: 'features-v1',
-    category: 'features',
-    variantName: '3-Card Service Matrix',
-    keywords: ['features', '3-card service matrix'],
-    thumbnailPath: 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjgwIiBoZWlnaHQ9IjE1NyIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KICA8cmVjdCB3aWR0aD0iMjgwIiBoZWlnaHQ9IjE1NyIgZmlsbD0iI2Y4ZmFmYyIgLz4KICA8cmVjdCB3aWR0aD0iMjc4IiBoZWlnaHQ9IjE1NSIgeD0iMSIgeT0iMSIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjY2JkNWUxIiBzdHJva2Utd2lkdGg9IjIiIHN0cm9rZS1kYXNoYXJyYXk9IjYgNCIgcng9IjYiIC8+CiAgPHRleHQgeD0iNTAlIiB5PSI0NSUiIGZvbnQtZmFtaWx5PSJzeXN0ZW0tdWksIHNhbnMtc2VyaWYiIGZvbnQtd2VpZ2h0PSI2MDAiIGZvbnQtc2l6ZT0iMTQiIGZpbGw9IiMzMzQxNTUiIHRleHQtYW5jaG9yPSJtaWRkbGUiPjMtQ0FSRCBTRVJWSUNFIE1BVFJJWDwvdGV4dD4KICA8dGV4dCB4PSI1MCUiIHk9IjYwJSIgZm9udC1mYW1pbHk9InN5c3RlbS11aSwgc2Fucy1zZXJpZiIgZm9udC1zaXplPSIxMiIgZmlsbD0iIzY0NzQ4YiIgdGV4dC1hbmNob3I9Im1pZGRsZSI+RkVBVFVSRVM8L3RleHQ+Cjwvc3ZnPg==',
-    buildSection: () => ({
-      id: `sec-${Date.now()}-${Math.random().toString(36).substring(7)}`,
-      type: 'features',
-      name: '3-Card Service Matrix',
-      props: {
-        col1: { kind: 'static', value: 'Feature 1' },
-        col2: { kind: 'static', value: 'Feature 2' },
-        col3: { kind: 'static', value: 'Feature 3' }
+  "id": "features-v1",
+  "category": "features",
+  "variantName": "Icon Grid",
+  "keywords": [
+    "features",
+    "icon grid"
+  ],
+  "thumbnailPath": "/preset-thumbnails/features-features-v1.svg",
+  "buildSection": () => ({id: `sec-${Date.now()}-${Math.random().toString(36).substring(7)}`,type: "features",name: "Icon Grid",props: {
+      "title": {
+            "kind": "static",
+            "value": "Sample Icon Grid"
       },
-      styles: {"padding":"64px","display":"grid","gridTemplateColumns":"repeat(3, 1fr)","gap":"24px","textAlign":"center"},
-      responsiveStyles: {}
-    })
-  },
+      "description": {
+            "kind": "static",
+            "value": "This is a beautiful features section."
+      }
+},styles: {"display":"grid","gridTemplateColumns":"repeat(3, 1fr)","gap":"32px","padding":"64px"},responsiveStyles: {}})
+},
   {
-    id: 'features-v2',
-    category: 'features',
-    variantName: 'Alternating Zig-Zag',
-    keywords: ['features', 'alternating zig-zag'],
-    thumbnailPath: 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjgwIiBoZWlnaHQ9IjE1NyIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KICA8cmVjdCB3aWR0aD0iMjgwIiBoZWlnaHQ9IjE1NyIgZmlsbD0iI2Y4ZmFmYyIgLz4KICA8cmVjdCB3aWR0aD0iMjc4IiBoZWlnaHQ9IjE1NSIgeD0iMSIgeT0iMSIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjY2JkNWUxIiBzdHJva2Utd2lkdGg9IjIiIHN0cm9rZS1kYXNoYXJyYXk9IjYgNCIgcng9IjYiIC8+CiAgPHRleHQgeD0iNTAlIiB5PSI0NSUiIGZvbnQtZmFtaWx5PSJzeXN0ZW0tdWksIHNhbnMtc2VyaWYiIGZvbnQtd2VpZ2h0PSI2MDAiIGZvbnQtc2l6ZT0iMTQiIGZpbGw9IiMzMzQxNTUiIHRleHQtYW5jaG9yPSJtaWRkbGUiPkFMVEVSTkFUSU5HIFpJRy1aQUc8L3RleHQ+CiAgPHRleHQgeD0iNTAlIiB5PSI2MCUiIGZvbnQtZmFtaWx5PSJzeXN0ZW0tdWksIHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTIiIGZpbGw9IiM2NDc0OGIiIHRleHQtYW5jaG9yPSJtaWRkbGUiPkZFQVRVUkVTPC90ZXh0Pgo8L3N2Zz4=',
-    buildSection: () => ({
-      id: `sec-${Date.now()}-${Math.random().toString(36).substring(7)}`,
-      type: 'features',
-      name: 'Alternating Zig-Zag',
-      props: {
-        row1: { kind: 'static', value: 'Image Left | Text Right' },
-        row2: { kind: 'static', value: 'Text Left | Image Right' }
+  "id": "features-v2",
+  "category": "features",
+  "variantName": "Analytics Grid",
+  "keywords": [
+    "features",
+    "analytics grid"
+  ],
+  "thumbnailPath": "/preset-thumbnails/features-features-v2.svg",
+  "buildSection": () => ({id: `sec-${Date.now()}-${Math.random().toString(36).substring(7)}`,type: "features",name: "Analytics Grid",props: {
+      "title": {
+            "kind": "static",
+            "value": "Sample Analytics Grid"
       },
-      styles: {"padding":"64px","display":"flex","flexDirection":"column","gap":"64px"},
-      responsiveStyles: {}
-    })
-  },
+      "description": {
+            "kind": "static",
+            "value": "This is a beautiful features section."
+      }
+},styles: {"display":"grid","gridTemplateColumns":"repeat(3, 1fr)","gridTemplateRows":"repeat(2, 1fr)","gap":"32px","padding":"64px"},responsiveStyles: {}})
+},
   {
-    id: 'features-v3',
-    category: 'features',
-    variantName: 'Category Badges',
-    keywords: ['features', 'category badges'],
-    thumbnailPath: 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjgwIiBoZWlnaHQ9IjE1NyIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KICA8cmVjdCB3aWR0aD0iMjgwIiBoZWlnaHQ9IjE1NyIgZmlsbD0iI2Y4ZmFmYyIgLz4KICA8cmVjdCB3aWR0aD0iMjc4IiBoZWlnaHQ9IjE1NSIgeD0iMSIgeT0iMSIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjY2JkNWUxIiBzdHJva2Utd2lkdGg9IjIiIHN0cm9rZS1kYXNoYXJyYXk9IjYgNCIgcng9IjYiIC8+CiAgPHRleHQgeD0iNTAlIiB5PSI0NSUiIGZvbnQtZmFtaWx5PSJzeXN0ZW0tdWksIHNhbnMtc2VyaWYiIGZvbnQtd2VpZ2h0PSI2MDAiIGZvbnQtc2l6ZT0iMTQiIGZpbGw9IiMzMzQxNTUiIHRleHQtYW5jaG9yPSJtaWRkbGUiPkNBVEVHT1JZIEJBREdFUzwvdGV4dD4KICA8dGV4dCB4PSI1MCUiIHk9IjYwJSIgZm9udC1mYW1pbHk9InN5c3RlbS11aSwgc2Fucy1zZXJpZiIgZm9udC1zaXplPSIxMiIgZmlsbD0iIzY0NzQ4YiIgdGV4dC1hbmNob3I9Im1pZGRsZSI+RkVBVFVSRVM8L3RleHQ+Cjwvc3ZnPg==',
-    buildSection: () => ({
-      id: `sec-${Date.now()}-${Math.random().toString(36).substring(7)}`,
-      type: 'features',
-      name: 'Category Badges',
-      props: {
-        badges: { kind: 'static', value: 'Tech | Design | Culture | AI' }
+  "id": "features-v3",
+  "category": "features",
+  "variantName": "Inbox Workflow Split",
+  "keywords": [
+    "features",
+    "inbox workflow split"
+  ],
+  "thumbnailPath": "/preset-thumbnails/features-features-v3.svg",
+  "buildSection": () => ({id: `sec-${Date.now()}-${Math.random().toString(36).substring(7)}`,type: "features",name: "Inbox Workflow Split",props: {
+      "title": {
+            "kind": "static",
+            "value": "Sample Inbox Workflow Split"
       },
-      styles: {"padding":"48px","display":"flex","flexWrap":"wrap","gap":"16px","justifyContent":"center"},
-      responsiveStyles: {}
-    })
-  }
+      "description": {
+            "kind": "static",
+            "value": "This is a beautiful features section."
+      }
+},styles: {"display":"grid","gridTemplateColumns":"1fr 1fr","gap":"48px","padding":"64px"},responsiveStyles: {}})
+},
+  {
+  "id": "features-v4",
+  "category": "features",
+  "variantName": "Product Highlights Split",
+  "keywords": [
+    "features",
+    "product highlights split"
+  ],
+  "thumbnailPath": "/preset-thumbnails/features-features-v4.svg",
+  "buildSection": () => ({id: `sec-${Date.now()}-${Math.random().toString(36).substring(7)}`,type: "features",name: "Product Highlights Split",props: {
+      "title": {
+            "kind": "static",
+            "value": "Sample Product Highlights Split"
+      },
+      "description": {
+            "kind": "static",
+            "value": "This is a beautiful features section."
+      }
+},styles: {"display":"grid","gridTemplateColumns":"1fr 1fr","gap":"48px","padding":"64px"},responsiveStyles: {}})
+},
+  {
+  "id": "features-v5",
+  "category": "features",
+  "variantName": "Release Essentials Centered",
+  "keywords": [
+    "features",
+    "release essentials centered"
+  ],
+  "thumbnailPath": "/preset-thumbnails/features-features-v5.svg",
+  "buildSection": () => ({id: `sec-${Date.now()}-${Math.random().toString(36).substring(7)}`,type: "features",name: "Release Essentials Centered",props: {
+      "title": {
+            "kind": "static",
+            "value": "Sample Release Essentials Centered"
+      },
+      "description": {
+            "kind": "static",
+            "value": "This is a beautiful features section."
+      }
+},styles: {"display":"flex","flexDirection":"column","alignItems":"center","gap":"48px","padding":"64px"},responsiveStyles: {}})
+},
+  {
+  "id": "features-v6",
+  "category": "features",
+  "variantName": "Support Overview 3 Col",
+  "keywords": [
+    "features",
+    "support overview 3 col"
+  ],
+  "thumbnailPath": "/preset-thumbnails/features-features-v6.svg",
+  "buildSection": () => ({id: `sec-${Date.now()}-${Math.random().toString(36).substring(7)}`,type: "features",name: "Support Overview 3 Col",props: {
+      "title": {
+            "kind": "static",
+            "value": "Sample Support Overview 3 Col"
+      },
+      "description": {
+            "kind": "static",
+            "value": "This is a beautiful features section."
+      }
+},styles: {"display":"grid","gridTemplateColumns":"repeat(3, 1fr)","gap":"32px","padding":"64px"},responsiveStyles: {}})
+},
+  {
+  "id": "features-v7",
+  "category": "features",
+  "variantName": "Finance Reasons 4 Col",
+  "keywords": [
+    "features",
+    "finance reasons 4 col"
+  ],
+  "thumbnailPath": "/preset-thumbnails/features-features-v7.svg",
+  "buildSection": () => ({id: `sec-${Date.now()}-${Math.random().toString(36).substring(7)}`,type: "features",name: "Finance Reasons 4 Col",props: {
+      "title": {
+            "kind": "static",
+            "value": "Sample Finance Reasons 4 Col"
+      },
+      "description": {
+            "kind": "static",
+            "value": "This is a beautiful features section."
+      }
+},styles: {"display":"grid","gridTemplateColumns":"repeat(4, 1fr)","gap":"24px","padding":"64px"},responsiveStyles: {}})
+},
+  {
+  "id": "features-v8",
+  "category": "features",
+  "variantName": "Blog Categories 4 Col",
+  "keywords": [
+    "features",
+    "blog categories 4 col"
+  ],
+  "thumbnailPath": "/preset-thumbnails/features-features-v8.svg",
+  "buildSection": () => ({id: `sec-${Date.now()}-${Math.random().toString(36).substring(7)}`,type: "features",name: "Blog Categories 4 Col",props: {
+      "title": {
+            "kind": "static",
+            "value": "Sample Blog Categories 4 Col"
+      },
+      "description": {
+            "kind": "static",
+            "value": "This is a beautiful features section."
+      }
+},styles: {"display":"grid","gridTemplateColumns":"repeat(4, 1fr)","gap":"24px","padding":"64px"},responsiveStyles: {}})
+},
+  {
+  "id": "features-v9",
+  "category": "features",
+  "variantName": "Editorial Blog Stack",
+  "keywords": [
+    "features",
+    "editorial blog stack"
+  ],
+  "thumbnailPath": "/preset-thumbnails/features-features-v9.svg",
+  "buildSection": () => ({id: `sec-${Date.now()}-${Math.random().toString(36).substring(7)}`,type: "features",name: "Editorial Blog Stack",props: {
+      "title": {
+            "kind": "static",
+            "value": "Sample Editorial Blog Stack"
+      },
+      "description": {
+            "kind": "static",
+            "value": "This is a beautiful features section."
+      }
+},styles: {"display":"grid","gridTemplateColumns":"repeat(3, 1fr)","gap":"32px","padding":"64px"},responsiveStyles: {}})
+},
+  {
+  "id": "features-v10",
+  "category": "features",
+  "variantName": "Media Checklist",
+  "keywords": [
+    "features",
+    "media checklist"
+  ],
+  "thumbnailPath": "/preset-thumbnails/features-features-v10.svg",
+  "buildSection": () => ({id: `sec-${Date.now()}-${Math.random().toString(36).substring(7)}`,type: "features",name: "Media Checklist",props: {
+      "title": {
+            "kind": "static",
+            "value": "Sample Media Checklist"
+      },
+      "description": {
+            "kind": "static",
+            "value": "This is a beautiful features section."
+      }
+},styles: {"display":"grid","gridTemplateColumns":"1fr 1fr","gap":"32px","padding":"64px"},responsiveStyles: {}})
+},
+  {
+  "id": "features-v11",
+  "category": "features",
+  "variantName": "Process Timeline",
+  "keywords": [
+    "features",
+    "process timeline"
+  ],
+  "thumbnailPath": "/preset-thumbnails/features-features-v11.svg",
+  "buildSection": () => ({id: `sec-${Date.now()}-${Math.random().toString(36).substring(7)}`,type: "features",name: "Process Timeline",props: {
+      "title": {
+            "kind": "static",
+            "value": "Sample Process Timeline"
+      },
+      "description": {
+            "kind": "static",
+            "value": "This is a beautiful features section."
+      }
+},styles: {"display":"flex","justifyContent":"space-between","padding":"64px"},responsiveStyles: {}})
+},
+  {
+  "id": "features-v12",
+  "category": "features",
+  "variantName": "Use Case Matrix",
+  "keywords": [
+    "features",
+    "use case matrix"
+  ],
+  "thumbnailPath": "/preset-thumbnails/features-features-v12.svg",
+  "buildSection": () => ({id: `sec-${Date.now()}-${Math.random().toString(36).substring(7)}`,type: "features",name: "Use Case Matrix",props: {
+      "title": {
+            "kind": "static",
+            "value": "Sample Use Case Matrix"
+      },
+      "description": {
+            "kind": "static",
+            "value": "This is a beautiful features section."
+      }
+},styles: {"display":"grid","gridTemplateColumns":"repeat(3, 1fr)","gap":"32px","padding":"64px"},responsiveStyles: {}})
+},
+  {
+  "id": "features-v13",
+  "category": "features",
+  "variantName": "Comparison Before After",
+  "keywords": [
+    "features",
+    "comparison before after"
+  ],
+  "thumbnailPath": "/preset-thumbnails/features-features-v13.svg",
+  "buildSection": () => ({id: `sec-${Date.now()}-${Math.random().toString(36).substring(7)}`,type: "features",name: "Comparison Before After",props: {
+      "title": {
+            "kind": "static",
+            "value": "Sample Comparison Before After"
+      },
+      "description": {
+            "kind": "static",
+            "value": "This is a beautiful features section."
+      }
+},styles: {"display":"grid","gridTemplateColumns":"1fr 1fr","gap":"48px","padding":"64px"},responsiveStyles: {}})
+}
 ];

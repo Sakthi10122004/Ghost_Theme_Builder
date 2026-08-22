@@ -15,29 +15,26 @@ export const PresetCard: React.FC<Props> = ({ preset, onSelect }) => {
         display: 'flex',
         flexDirection: 'column',
         width: '100%',
-        border: '1px solid #e2e8f0',
-        borderRadius: '8px',
-        backgroundColor: 'white',
+        border: '1px solid var(--line)',
+        borderRadius: 'var(--radius-md)',
+        backgroundColor: 'var(--surface)',
         cursor: 'pointer',
         overflow: 'hidden',
         transition: 'all 0.2s ease',
         textAlign: 'left',
-        padding: 0
+        padding: 0,
+        boxShadow: 'none'
       }}
       onMouseOver={(e) => {
-        e.currentTarget.style.borderColor = '#818cf8';
-        e.currentTarget.style.boxShadow = '0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05)';
-        e.currentTarget.style.transform = 'translateY(-2px)';
+        e.currentTarget.style.borderColor = 'var(--accent)';
       }}
       onMouseOut={(e) => {
-        e.currentTarget.style.borderColor = '#e2e8f0';
-        e.currentTarget.style.boxShadow = 'none';
-        e.currentTarget.style.transform = 'none';
+        e.currentTarget.style.borderColor = 'var(--line)';
       }}
     >
-      <div style={{ width: '100%', aspectRatio: '16/9', backgroundColor: '#f1f5f9', position: 'relative' }}>
+      <div style={{ width: '100%', aspectRatio: '16/9', backgroundColor: 'var(--paper)', position: 'relative' }}>
         {/* Fallback styling for when thumbnails aren't generated yet */}
-        <div style={{ position: 'absolute', inset: 0, display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#94a3b8', fontSize: '0.75rem' }}>
+        <div style={{ position: 'absolute', inset: 0, display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'var(--muted)', fontSize: 'var(--text-xs)' }}>
           No Thumbnail
         </div>
         
@@ -46,15 +43,17 @@ export const PresetCard: React.FC<Props> = ({ preset, onSelect }) => {
           src={preset.thumbnailPath} 
           alt={preset.variantName}
           fill
-          style={{ objectFit: 'contain', objectPosition: 'top', position: 'absolute', inset: 0, zIndex: 1, padding: '8px' }}
+          style={{ objectFit: 'contain', objectPosition: 'top', position: 'absolute', inset: 0, zIndex: 1, padding: 'var(--space-8)' }}
           unoptimized // since it's local dev / raw build output
         />
       </div>
 
-      <div style={{ padding: '12px 16px', borderTop: '1px solid #e2e8f0', zIndex: 2, backgroundColor: 'white' }}>
-        <div style={{ fontSize: '0.875rem', fontWeight: 600, color: '#0f172a' }}>
-          <span style={{ textTransform: 'capitalize', color: '#64748b', fontWeight: 500, marginRight: '4px' }}>{preset.category} —</span>
-          {preset.variantName}
+      <div style={{ padding: 'var(--space-12) var(--space-16)', borderTop: '1px solid var(--line)', zIndex: 2, backgroundColor: 'var(--surface)' }}>
+        <div style={{ fontSize: 'var(--text-sm)', lineHeight: 'var(--text-sm-lh)', fontWeight: 600, color: 'var(--ink)' }}>
+          <span className="font-mono" style={{ textTransform: 'uppercase', fontSize: 'var(--text-xs)', color: 'var(--muted)', fontWeight: 500, marginRight: 'var(--space-8)', display: 'inline-block', backgroundColor: 'var(--paper)', padding: '2px 6px', borderRadius: '4px' }}>
+            {preset.category}
+          </span>
+          <span style={{ display: 'block', marginTop: '4px' }}>{preset.variantName}</span>
         </div>
       </div>
     </button>

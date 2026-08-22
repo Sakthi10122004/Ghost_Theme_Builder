@@ -45,23 +45,24 @@ export const ProjectsDashboard: React.FC = () => {
   const isAtLimit = projects.length >= MAX_PROJECTS;
 
   return (
-    <div style={{ display: 'flex', flexDirection: 'column', height: '100%', minHeight: '100vh', backgroundColor: '#f1f5f9' }}>
+    <div style={{ display: 'flex', flexDirection: 'column', height: '100%', minHeight: '100vh', backgroundColor: 'var(--paper)' }}>
       
       {/* Top Bar */}
       <header style={{ 
         display: 'flex', 
         justifyContent: 'space-between', 
         alignItems: 'center', 
-        padding: '24px 40px',
-        backgroundColor: 'white',
-        borderBottom: '1px solid #e2e8f0'
+        padding: 'var(--space-24) var(--space-48)',
+        backgroundColor: 'var(--surface)',
+        borderBottom: '1px solid var(--line)'
       }}>
         <div>
-          <h1 style={{ margin: '0 0 8px 0', fontSize: '1.75rem', fontWeight: 700, color: '#0f172a' }}>Projects</h1>
-          <p style={{ margin: 0, color: '#64748b' }}>Manage your Ghost CMS theme projects</p>
+          <h1 className="heading-display" style={{ margin: '0 0 var(--space-8) 0', fontSize: 'var(--text-xl)', lineHeight: 'var(--text-xl-lh)', color: 'var(--ink)' }}>Projects</h1>
+          <p style={{ margin: 0, color: 'var(--muted)', fontSize: 'var(--text-base)', lineHeight: 'var(--text-base-lh)' }}>Manage your Ghost CMS theme projects</p>
         </div>
         
-        <div style={{ display: 'flex', alignItems: 'center', gap: '16px' }}>
+        <div style={{ display: 'flex', alignItems: 'center', gap: 'var(--space-16)' }}>
+        
           <QuotaIndicator currentCount={projects.length} />
           
           <div style={{ position: 'relative' }}>
@@ -71,13 +72,14 @@ export const ProjectsDashboard: React.FC = () => {
               style={{
                 display: 'flex',
                 alignItems: 'center',
-                gap: '8px',
-                padding: '10px 20px',
-                backgroundColor: isAtLimit ? '#cbd5e1' : '#4f46e5',
-                color: 'white',
+                gap: 'var(--space-8)',
+                padding: 'var(--space-8) var(--space-16)',
+                backgroundColor: isAtLimit ? 'var(--line)' : 'var(--accent)',
+                color: isAtLimit ? 'var(--muted)' : 'white',
                 border: 'none',
-                borderRadius: '6px',
+                borderRadius: 'var(--radius-sm)',
                 fontWeight: 500,
+                fontSize: 'var(--text-base)',
                 cursor: isAtLimit ? 'not-allowed' : 'pointer'
               }}
             >
@@ -85,7 +87,7 @@ export const ProjectsDashboard: React.FC = () => {
               New Theme
             </button>
             {isAtLimit && (
-              <span style={{ position: 'absolute', top: '100%', right: 0, marginTop: '8px', fontSize: '0.75rem', color: '#ef4444', whiteSpace: 'nowrap' }}>
+              <span style={{ position: 'absolute', top: '100%', right: 0, marginTop: 'var(--space-8)', fontSize: 'var(--text-xs)', color: 'var(--danger)', whiteSpace: 'nowrap' }}>
                 Project limit reached.
               </span>
             )}

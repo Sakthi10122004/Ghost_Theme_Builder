@@ -76,10 +76,10 @@ export const TokenPickerField: React.FC<Props> = ({ value, onChange, label, isUn
   };
 
   return (
-    <div style={{ marginBottom: '16px' }}>
-      <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '6px' }}>
+    <div style={{ marginBottom: 'var(--space-16)' }}>
+      <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: 'var(--space-8)' }}>
         <div style={{ display: 'flex', alignItems: 'center' }}>
-          <label style={{ fontSize: '0.75rem', fontWeight: 600, color: '#475569' }}>
+          <label style={{ fontSize: 'var(--text-sm)', lineHeight: 'var(--text-sm-lh)', fontWeight: 500, color: 'var(--ink)' }}>
             {label}
           </label>
           {displayValue.includes('site.navigation') && <NavConventionTooltip />}
@@ -93,30 +93,39 @@ export const TokenPickerField: React.FC<Props> = ({ value, onChange, label, isUn
           onChange={handleTextChange}
           style={{
             flex: 1,
-            padding: '8px 12px',
+            padding: 'var(--space-8) var(--space-12)',
             paddingRight: '36px',
-            borderRadius: '6px',
-            border: '1px solid #cbd5e1',
-            fontSize: '0.875rem',
+            borderRadius: 'var(--radius-sm)',
+            border: '1px solid var(--line)',
+            backgroundColor: 'var(--surface)',
+            color: 'var(--ink)',
+            fontSize: 'var(--text-base)',
+            lineHeight: 'var(--text-base-lh)',
+            fontFamily: displayValue.includes('{') ? 'var(--font-mono, monospace)' : 'inherit',
             outline: 'none',
+            transition: 'border-color 0.2s'
           }}
+          onFocus={(e) => e.target.style.borderColor = 'var(--accent)'}
+          onBlur={(e) => e.target.style.borderColor = 'var(--line)'}
         />
         <button
           onClick={() => setIsOpen(!isOpen)}
           style={{
             position: 'absolute',
             right: '4px',
-            padding: '4px',
+            padding: 'var(--space-4)',
             background: 'transparent',
             border: 'none',
             cursor: 'pointer',
-            color: '#64748b',
+            color: 'var(--muted)',
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
-            borderRadius: '4px'
+            borderRadius: 'var(--radius-sm)'
           }}
           title="Insert Ghost Token"
+          onMouseOver={(e) => e.currentTarget.style.color = 'var(--accent)'}
+          onMouseOut={(e) => e.currentTarget.style.color = 'var(--muted)'}
         >
           <Braces size={16} />
         </button>
@@ -126,41 +135,49 @@ export const TokenPickerField: React.FC<Props> = ({ value, onChange, label, isUn
             position: 'absolute',
             top: '100%',
             right: 0,
-            marginTop: '4px',
+            marginTop: 'var(--space-4)',
             width: '240px',
-            backgroundColor: '#ffffff',
-            border: '1px solid #e2e8f0',
-            borderRadius: '8px',
-            boxShadow: '0 10px 15px -3px rgba(0, 0, 0, 0.1)',
+            backgroundColor: 'var(--surface)',
+            border: '1px solid var(--line)',
+            borderRadius: 'var(--radius-md)',
+            boxShadow: 'var(--shadow-modal)',
             zIndex: 100,
             maxHeight: '300px',
             overflowY: 'auto'
           }}>
-            <div style={{ padding: '12px', fontSize: '0.75rem', fontWeight: 600, color: '#94a3b8', borderBottom: '1px solid #e2e8f0' }}>
+            <div style={{ padding: 'var(--space-12)', fontSize: 'var(--text-xs)', lineHeight: 'var(--text-xs-lh)', fontWeight: 600, color: 'var(--muted)', borderBottom: '1px solid var(--line)' }}>
               INSERT DATA BINDING
             </div>
             {Object.entries(VALID_BINDINGS).map(([source, fields]) => (
-              <div key={source} style={{ padding: '8px 0' }}>
-                <div style={{ padding: '0 12px', fontSize: '0.6875rem', fontWeight: 700, color: '#64748b', textTransform: 'uppercase', marginBottom: '4px' }}>
+              <div key={source} style={{ padding: 'var(--space-8) 0' }}>
+                <div style={{ padding: '0 var(--space-12)', fontSize: 'var(--text-xs)', lineHeight: 'var(--text-xs-lh)', fontWeight: 700, color: 'var(--muted)', textTransform: 'uppercase', marginBottom: 'var(--space-4)' }}>
                   {source}
                 </div>
                 {fields.map(field => (
                   <button
                     key={field}
                     onClick={() => handleInsertToken(source, field)}
+                    className="font-mono"
                     style={{
                       display: 'block',
                       width: '100%',
                       textAlign: 'left',
-                      padding: '6px 16px',
+                      padding: 'var(--space-4) var(--space-16)',
                       backgroundColor: 'transparent',
                       border: 'none',
-                      fontSize: '0.875rem',
-                      color: '#0f172a',
+                      fontSize: 'var(--text-sm)',
+                      lineHeight: 'var(--text-sm-lh)',
+                      color: 'var(--ink)',
                       cursor: 'pointer'
                     }}
-                    onMouseOver={(e) => e.currentTarget.style.backgroundColor = '#f1f5f9'}
-                    onMouseOut={(e) => e.currentTarget.style.backgroundColor = 'transparent'}
+                    onMouseOver={(e) => {
+                      e.currentTarget.style.backgroundColor = 'var(--paper)';
+                      e.currentTarget.style.color = 'var(--accent)';
+                    }}
+                    onMouseOut={(e) => {
+                      e.currentTarget.style.backgroundColor = 'transparent';
+                      e.currentTarget.style.color = 'var(--ink)';
+                    }}
                   >
                     {field}
                   </button>

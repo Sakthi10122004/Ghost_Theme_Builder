@@ -43,31 +43,32 @@ export const CategorySidebar: React.FC<Props> = ({ activeCategory, onSelectCateg
                   justifyContent: 'space-between',
                   alignItems: 'center',
                   width: '100%',
-                  padding: '8px 12px',
-                  borderRadius: '6px',
+                  padding: 'var(--space-8) var(--space-12)',
+                  borderRadius: 'var(--radius-sm)',
                   border: 'none',
-                  backgroundColor: isActive ? '#f1f5f9' : 'transparent',
-                  color: isActive ? '#0f172a' : '#475569',
+                  backgroundColor: isActive ? 'var(--paper)' : 'transparent',
+                  color: isActive ? 'var(--ink)' : 'var(--muted)',
                   fontWeight: isActive ? 600 : 500,
-                  fontSize: '0.875rem',
+                  fontSize: 'var(--text-sm)',
+                  lineHeight: 'var(--text-sm-lh)',
                   cursor: 'pointer',
                   textAlign: 'left',
                   transition: 'all 0.1s'
                 }}
                 onMouseOver={(e) => {
-                  if (!isActive) e.currentTarget.style.backgroundColor = '#f8fafc';
+                  if (!isActive) e.currentTarget.style.backgroundColor = 'var(--paper)';
                 }}
                 onMouseOut={(e) => {
                   if (!isActive) e.currentTarget.style.backgroundColor = 'transparent';
                 }}
               >
                 <span>{cat.label}</span>
-                <span style={{ 
-                  fontSize: '0.75rem', 
-                  color: isActive ? '#64748b' : '#94a3b8',
-                  backgroundColor: isActive ? '#e2e8f0' : 'transparent',
+                <span className="font-mono" style={{ 
+                  fontSize: 'var(--text-xs)', 
+                  color: isActive ? 'var(--muted)' : 'var(--muted)',
+                  backgroundColor: isActive ? 'var(--line)' : 'transparent',
                   padding: '2px 6px',
-                  borderRadius: '12px'
+                  borderRadius: 'var(--radius-sm)'
                 }}>
                   {count}
                 </span>

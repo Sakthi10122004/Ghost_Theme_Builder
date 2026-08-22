@@ -30,40 +30,42 @@ export const ProjectCard: React.FC<Props> = ({ project, onDuplicate, onDelete })
       style={{
         display: 'flex',
         flexDirection: 'column',
-        backgroundColor: 'white',
-        border: '1px solid #e2e8f0',
-        borderRadius: '8px',
+        backgroundColor: 'var(--surface)',
+        border: '1px solid var(--line)',
+        borderRadius: 'var(--radius-md)',
         overflow: 'hidden',
-        boxShadow: '0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06)',
-        transition: 'transform 0.2s, box-shadow 0.2s',
+        transition: 'transform 0.2s, box-shadow 0.2s, border-color 0.2s',
         cursor: 'pointer'
       }}
       onMouseOver={(e) => {
         e.currentTarget.style.transform = 'translateY(-2px)';
-        e.currentTarget.style.boxShadow = '0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)';
+        e.currentTarget.style.boxShadow = 'var(--shadow-modal)';
+        e.currentTarget.style.borderColor = 'var(--line)'; // Keep it static, editorial feel
       }}
       onMouseOut={(e) => {
         e.currentTarget.style.transform = 'translateY(0)';
-        e.currentTarget.style.boxShadow = '0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06)';
+        e.currentTarget.style.boxShadow = 'none';
+        e.currentTarget.style.borderColor = 'var(--line)';
       }}
     >
       
       {/* Thumbnail Area */}
-      <div style={{ height: '180px', position: 'relative', borderBottom: '1px solid #e2e8f0' }}>
+      <div style={{ height: '180px', position: 'relative', borderBottom: '1px solid var(--line)' }}>
         <ProjectThumbnail project={project} />
         
         {/* Status Badge */}
         {project.status === 'draft' && (
-          <div style={{
+          <div className="font-mono" style={{
             position: 'absolute',
-            top: '12px',
-            right: '12px',
-            backgroundColor: 'rgba(254, 243, 199, 0.9)',
-            color: '#b45309',
-            padding: '4px 8px',
-            borderRadius: '4px',
-            fontSize: '0.75rem',
-            fontWeight: 600,
+            top: 'var(--space-12)',
+            right: 'var(--space-12)',
+            backgroundColor: 'rgba(184, 117, 46, 0.1)', // pale warning tint
+            color: 'var(--warning)',
+            padding: 'var(--space-4) var(--space-8)',
+            borderRadius: 'var(--radius-sm)',
+            fontSize: 'var(--text-xs)',
+            lineHeight: 'var(--text-xs-lh)',
+            fontWeight: 500,
             letterSpacing: '0.05em',
             textTransform: 'uppercase',
             backdropFilter: 'blur(4px)'
@@ -74,13 +76,13 @@ export const ProjectCard: React.FC<Props> = ({ project, onDuplicate, onDelete })
       </div>
 
       {/* Body Area */}
-      <div style={{ padding: '16px' }}>
-        <h3 style={{ margin: '0 0 4px 0', fontSize: '1.125rem', fontWeight: 600, color: '#1e293b' }}>
+      <div style={{ padding: 'var(--space-16)' }}>
+        <h3 className="heading-display" style={{ margin: '0 0 var(--space-4) 0', fontSize: 'var(--text-lg)', lineHeight: 'var(--text-lg-lh)', color: 'var(--ink)' }}>
           {project.name}
         </h3>
         <p 
           title={new Date(project.updatedAt).toLocaleString()}
-          style={{ margin: 0, fontSize: '0.875rem', color: '#64748b' }}
+          style={{ margin: 0, fontSize: 'var(--text-sm)', lineHeight: 'var(--text-sm-lh)', color: 'var(--muted)' }}
         >
           Edited {timeAgo(project.updatedAt)}
         </p>

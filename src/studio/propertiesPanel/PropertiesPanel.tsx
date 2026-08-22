@@ -37,14 +37,14 @@ export const PropertiesPanel: React.FC = () => {
 
   if (!activeSection) {
     return (
-      <div style={{ flex: 1, backgroundColor: 'white', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', color: '#94a3b8' }}>
-        <div style={{ fontSize: '0.875rem' }}>Select a section to edit its properties</div>
+      <div style={{ flex: 1, backgroundColor: 'var(--surface)', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', color: 'var(--muted)' }}>
+        <div style={{ fontSize: 'var(--text-sm)', lineHeight: 'var(--text-sm-lh)' }}>Select a section to edit its properties</div>
       </div>
     );
   }
 
   return (
-    <div style={{ flex: 1, backgroundColor: 'white', display: 'flex', flexDirection: 'column', overflow: 'hidden' }}>
+    <div style={{ flex: 1, backgroundColor: 'var(--surface)', display: 'flex', flexDirection: 'column', overflow: 'hidden' }}>
       <PanelHeader section={activeSection} />
       
       <div style={{ flex: 1, overflowY: 'auto' }}>

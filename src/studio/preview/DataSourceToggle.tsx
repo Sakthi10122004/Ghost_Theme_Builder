@@ -4,20 +4,21 @@ export const DataSourceToggle: React.FC = () => {
   return (
     <div style={{
       display: 'flex',
-      background: '#2d2d2d',
+      background: 'var(--paper)',
+      border: '1px solid var(--line)',
       padding: '4px',
-      borderRadius: '8px',
-      fontSize: '13px',
+      borderRadius: 'var(--radius-md)',
+      fontSize: 'var(--text-sm)',
       fontWeight: 500,
-      marginRight: '16px'
+      marginRight: 'var(--space-16)'
     }}>
       <button
         style={{
-          background: '#374151',
-          color: '#fff',
-          border: 'none',
-          padding: '6px 12px',
-          borderRadius: '6px',
+          background: 'var(--surface)',
+          color: 'var(--accent)',
+          border: '1px solid var(--line)', // Gives it that raised look within the container, or we could just use no border. The prompt says "hairline border container".
+          padding: 'var(--space-4) var(--space-12)',
+          borderRadius: 'calc(var(--radius-md) - 4px)',
           cursor: 'pointer',
         }}
       >
@@ -28,10 +29,10 @@ export const DataSourceToggle: React.FC = () => {
         title="Coming soon"
         style={{
           background: 'transparent',
-          color: '#6b7280',
+          color: 'var(--muted)',
           border: 'none',
-          padding: '6px 12px',
-          borderRadius: '6px',
+          padding: 'var(--space-4) var(--space-12)',
+          borderRadius: 'calc(var(--radius-md) - 4px)',
           cursor: 'not-allowed',
         }}
       >

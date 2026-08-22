@@ -2,53 +2,48 @@
 @import "tailwindcss";
 
 :root {
-  /* Brand Colors - Indigo Accent */
-  --color-primary: #4F46E5;
-  --color-primary-hover: #4338CA;
-  --color-primary-light: #6366F1;
-  --color-primary-subtle: #EEF2FF;
+  /* Colors */
+  --ink: #1C1B1F;
+  --paper: #FAFAF8;
+  --surface: #FFFFFF;
+  --line: #E4E2DD;
+  --muted: #6B6963;
+  --accent: #3B4C9E;
   
-  /* Surfaces - Light Mode Professional */
-  --color-bg-primary: #F8F9FA;
-  --color-bg-secondary: #FFFFFF;
-  --color-bg-tertiary: #F3F4F6;
-  --color-bg-elevated: #FFFFFF;
-  --color-bg-card: #FFFFFF;
-  --color-bg-card-hover: #F9FAFB;
-  
-  /* Text */
-  --color-text-primary: #111827;
-  --color-text-secondary: #4B5563;
-  --color-text-muted: #9CA3AF;
-  --color-text-accent: #4F46E5;
-  
-  /* Borders */
-  --color-border: #E5E7EB;
-  --color-border-hover: #D1D5DB;
-  --color-border-active: #4F46E5;
-  
-  /* Status */
-  --color-success: #10B981;
-  --color-warning: #F59E0B;
-  --color-error: #EF4444;
-  --color-info: #3B82F6;
-  
-  /* Shadows - Minimal & Neutral */
-  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
-  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
-  --shadow-modal: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
-  
-  /* Radius - Moderate */
+  --success: #2F6F4E;
+  --warning: #B8752E;
+  --danger: #A33B3B;
+
+  /* Typography Sizes */
+  --text-xs: 12px;
+  --text-xs-lh: 16px;
+  --text-sm: 13px;
+  --text-sm-lh: 20px;
+  --text-base: 14px;
+  --text-base-lh: 20px;
+  --text-lg: 16px;
+  --text-lg-lh: 24px;
+  --text-xl: 20px;
+  --text-xl-lh: 28px;
+  --text-2xl: 28px;
+  --text-2xl-lh: 36px;
+
+  /* Spacing */
+  --space-4: 4px;
+  --space-8: 8px;
+  --space-12: 12px;
+  --space-16: 16px;
+  --space-24: 24px;
+  --space-32: 32px;
+  --space-48: 48px;
+  --space-64: 64px;
+
+  /* Borders & Radius */
   --radius-sm: 6px;
   --radius-md: 8px;
-  --radius-lg: 12px;
-  --radius-xl: 16px;
   
-  /* Transitions - Subtle & Fast */
-  --transition-fast: 150ms cubic-bezier(0.4, 0, 0.2, 1);
-  --transition-normal: 200ms cubic-bezier(0.4, 0, 0.2, 1);
-  --transition-slow: 300ms cubic-bezier(0.4, 0, 0.2, 1);
+  /* Shadows (Only for floating elements) */
+  --shadow-modal: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
 }
 
 * {
@@ -64,11 +59,24 @@ html {
 }
 
 body {
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-  background: var(--color-bg-primary);
-  color: var(--color-text-primary);
+  font-family: 'Inter', system-ui, sans-serif;
+  font-weight: 400;
+  background: var(--paper);
+  color: var(--ink);
+  font-size: var(--text-base);
+  line-height: var(--text-base-lh);
   min-height: 100vh;
   overflow-x: hidden;
+}
+
+h1, h2, h3, h4, h5, h6, .heading-display {
+  font-family: 'Söhne', 'Inter Display', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+
+code, pre, .font-mono {
+  font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, monospace;
 }
 
 /* Scrollbar Styling */

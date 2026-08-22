@@ -92,8 +92,16 @@ function resolvePropValue(val: PropValue): string {
     // E.g. {{site.title}} or {{primary_author.name}}
     return `{{${val.source}.${val.field}}}`;
   }
+  if (val.kind === 'portal') {
+    const isForm = val.action.includes('form');
+    const actionStr = isForm ? val.action : `data-portal="${val.action}"`;
+    return `<a href="#/${val.action.replace(/[^a-z0-9-]/g, '')}" class="gh-portal-btn" ${actionStr}>${val.label}</a>`;
+  }
+  if (val.kind === 'navigation') {
+    return val.variant === 'secondary' ? '{{navigation type="secondary"}}' : '{{navigation}}';
+  }
   if (val.kind === 'rich') {
-    return val.parts.map(p => {
+    return val.parts.map((p: any) => {
       if (p.kind === 'text') return p.value;
       return `{{${p.binding.source}.${p.binding.field}}}`;
     }).join('');
