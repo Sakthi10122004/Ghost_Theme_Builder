@@ -46,7 +46,7 @@ export const PresetCard: React.FC<Props> = ({ preset, onSelect }) => {
           src={preset.thumbnailPath} 
           alt={preset.variantName}
           fill
-          style={{ objectFit: 'cover', position: 'absolute', inset: 0, zIndex: 1 }}
+          style={{ objectFit: 'contain', objectPosition: 'top', position: 'absolute', inset: 0, zIndex: 1, padding: '8px' }}
           unoptimized // since it's local dev / raw build output
         />
       </div>

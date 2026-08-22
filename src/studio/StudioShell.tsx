@@ -5,12 +5,14 @@ import { CanvasStub } from './canvas/CanvasStub';
 import { RightPanel } from './rightPanel/RightPanel';
 import { AddSectionModal } from './addSectionModal/AddSectionModal';
 import { useEditorStore } from '../state/editorStore';
+import { GhostPreviewPane } from './preview/GhostPreviewPane';
 
 export const StudioShell: React.FC = () => {
-  const previewMode = useEditorStore((state) => state.previewMode);
+  const colorMode = useEditorStore((state) => state.previewMode);
+  const previewMode = useEditorStore((state) => state.activePreviewMode);
 
   // Apply a basic theme class to the wrapper for demonstration
-  const themeClass = previewMode === 'dark' ? 'dark-mode' : 'light-mode';
+  const themeClass = colorMode === 'dark' ? 'dark-mode' : 'light-mode';
 
   return (
     <div 
@@ -24,15 +26,15 @@ export const StudioShell: React.FC = () => {
         fontFamily: 'sans-serif',
         // In a real implementation with Tailwind, this would use the `dark:` prefix classes.
         // For Phase 2, we just ensure the state is synced.
-        backgroundColor: previewMode === 'dark' ? '#1e293b' : '#f8fafc',
-        color: previewMode === 'dark' ? '#f8fafc' : '#0f172a'
+        backgroundColor: colorMode === 'dark' ? '#1e293b' : '#f8fafc',
+        color: colorMode === 'dark' ? '#f8fafc' : '#0f172a'
       }}
     >
       <StudioToolbar />
       
       <div style={{ display: 'flex', flex: 1, overflow: 'hidden' }}>
         <LeftPanel />
-        <CanvasStub />
+        {previewMode === 'design' ? <CanvasStub /> : <GhostPreviewPane />}
         <RightPanel />
       </div>
 

@@ -1,0 +1,78 @@
+{
+  "db": [
+    {
+      "meta": {
+        "exported_on": 1690000000000,
+        "version": "5.59.0"
+      },
+      "data": {
+        "posts": [
+          {
+            "id": "demo-post-1",
+            "title": "A Standard Post (Not Featured)",
+            "slug": "standard-post",
+            "mobiledoc": "{\"version\":\"0.3.1\",\"atoms\":[],\"cards\":[],\"markups\":[],\"sections\":[[1,\"p\",[[0,[],0,\"This is a standard post to test Routes vs Featured sources.\"]]]]}",
+            "html": "<p>This is a standard post to test Routes vs Featured sources.</p>",
+            "status": "published",
+            "visibility": "public",
+            "featured": 0,
+            "created_at": "2023-01-01T00:00:00.000Z",
+            "published_at": "2023-01-01T00:00:00.000Z",
+            "custom_excerpt": "Standard post excerpt"
+          },
+          {
+            "id": "demo-post-2",
+            "title": "A Special Featured Post",
+            "slug": "special-featured-post",
+            "mobiledoc": "{\"version\":\"0.3.1\",\"atoms\":[],\"cards\":[],\"markups\":[],\"sections\":[[1,\"p\",[[0,[],0,\"This is a featured post.\"]]]]}",
+            "html": "<p>This is a featured post.</p>",
+            "status": "published",
+            "visibility": "public",
+            "featured": 1,
+            "created_at": "2023-01-02T00:00:00.000Z",
+            "published_at": "2023-01-02T00:00:00.000Z",
+            "custom_excerpt": "Featured post excerpt"
+          },
+          {
+            "id": "demo-post-3",
+            "title": "Another Standard Post",
+            "slug": "another-standard-post",
+            "mobiledoc": "{\"version\":\"0.3.1\",\"atoms\":[],\"cards\":[],\"markups\":[],\"sections\":[[1,\"p\",[[0,[],0,\"More content.\"]]]]}",
+            "html": "<p>More content.</p>",
+            "status": "published",
+            "visibility": "public",
+            "featured": 0,
+            "created_at": "2023-01-03T00:00:00.000Z",
+            "published_at": "2023-01-03T00:00:00.000Z"
+          },
+          {
+            "id": "demo-post-4",
+            "title": "Second Featured Highlight",
+            "slug": "second-featured-highlight",
+            "mobiledoc": "{\"version\":\"0.3.1\",\"atoms\":[],\"cards\":[],\"markups\":[],\"sections\":[[1,\"p\",[[0,[],0,\"Second featured content.\"]]]]}",
+            "html": "<p>Second featured content.</p>",
+            "status": "published",
+            "visibility": "public",
+            "featured": 1,
+            "created_at": "2023-01-04T00:00:00.000Z",
+            "published_at": "2023-01-04T00:00:00.000Z"
+          }
+        ],
+        "tags": [
+          {
+            "id": "demo-tag-1",
+            "name": "Design Studio Demo",
+            "slug": "design-studio-demo",
+            "visibility": "public"
+          }
+        ],
+        "posts_tags": [
+          { "id": "pt-1", "post_id": "demo-post-1", "tag_id": "demo-tag-1" },
+          { "id": "pt-2", "post_id": "demo-post-2", "tag_id": "demo-tag-1" },
+          { "id": "pt-3", "post_id": "demo-post-3", "tag_id": "demo-tag-1" },
+          { "id": "pt-4", "post_id": "demo-post-4", "tag_id": "demo-tag-1" }
+        ]
+      }
+    }
+  ]
+}

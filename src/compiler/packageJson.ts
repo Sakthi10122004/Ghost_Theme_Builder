@@ -10,8 +10,8 @@ export function generatePackageJson(project: ThemeProject): string {
   const customConfig: Record<string, any> = {};
 
   // Walk through all sections to find unlocked fields
-  const sections = project.templates.flatMap(t => t.sections)
-    .concat(project.layouts.flatMap(l => [...l.header, ...l.footer]));
+  const sections = (project.templates || []).flatMap(t => t.sections || [])
+    .concat((project.layouts || []).flatMap(l => [...(l.header || []), ...(l.footer || [])]));
 
   sections.forEach((section, index) => {
     if (!section.fieldLocks) return;

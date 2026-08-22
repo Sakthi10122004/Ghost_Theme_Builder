@@ -59,16 +59,16 @@ export function semanticResolver(ast: ThemeProject): ResolvedTheme {
     };
   };
 
-  const templates: ResolvedTemplate[] = ast.templates.map(tpl => ({
+  const templates: ResolvedTemplate[] = (ast.templates || []).map(tpl => ({
     ...tpl,
-    sections: tpl.sections.map(resolveSection)
+    sections: (tpl.sections || []).map(resolveSection)
   }));
 
   const layouts: ResolvedLayout[] = (ast.layouts || []).map(l => ({
     id: l.id,
     name: l.name,
-    header: l.header.map(resolveSection),
-    footer: l.footer.map(resolveSection)
+    header: (l.header || []).map(resolveSection),
+    footer: (l.footer || []).map(resolveSection)
   }));
 
   return {

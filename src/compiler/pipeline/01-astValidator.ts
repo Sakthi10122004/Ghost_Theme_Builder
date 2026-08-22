@@ -6,9 +6,19 @@ import { sectionStyleModules } from '../sectionStyleModules';
 export function astValidator(ast: ThemeProject): ValidationIssue[] {
   const issues: ValidationIssue[] = [];
 
+  if (!ast || !ast.templates || ast.templates.length === 0) {
+    issues.push({
+      id: 'l1-missing-templates',
+      layer: 1, severity: 'error', checkName: 'Missing required templates',
+      message: 'Theme must contain at least one template (default.hbs).'
+    });
+    return issues;
+  }
+
   // 1. Missing required templates
   const hasDefault = ast.templates.some(t => t.type === 'default');
   const hasIndex = ast.templates.some(t => t.type === 'index');
+  const hasPost = ast.templates.some(t => t.type === 'post');
 
   if (!hasDefault) {
     issues.push({
@@ -24,20 +34,28 @@ export function astValidator(ast: ThemeProject): ValidationIssue[] {
       message: 'Theme must contain an index template (index.hbs).'
     });
   }
+  if (!hasPost) {
+    issues.push({
+      id: 'l1-missing-post',
+      layer: 1, severity: 'error', checkName: 'Missing required template',
+      message: 'Theme must contain a post template (post.hbs).'
+    });
+  }
 
   // Check sections
-  for (const tpl of ast.templates) {
-    checkSections(tpl.sections, tpl.id, issues);
+  for (const tpl of ast.templates || []) {
+    checkSections(tpl.sections || [], tpl.id, issues);
   }
   for (const layout of ast.layouts || []) {
-    checkSections(layout.header, layout.id, issues);
-    checkSections(layout.footer, layout.id, issues);
+    checkSections(layout.header || [], layout.id, issues);
+    checkSections(layout.footer || [], layout.id, issues);
   }
 
   return issues;
 }
 
 function checkSections(sections: any[], containerId: string, issues: ValidationIssue[]) {
+  if (!sections) return;
   for (const sec of sections) {
     // 2. Invalid component
     if (!sectionStyleModules[sec.type]) {

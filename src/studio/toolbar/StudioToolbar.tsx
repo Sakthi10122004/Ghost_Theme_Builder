@@ -1,11 +1,13 @@
 import React from 'react';
 import { DeviceSwitcher } from './DeviceSwitcher';
-import { PreviewModeToggle } from './PreviewModeToggle';
 import { Download, ChevronLeft } from 'lucide-react';
 import { useRouter } from 'next/navigation';
 import { useAstHistory } from '../../state/astHistory';
 import { ContinuousIssuesIndicator } from '../exportFlow/ContinuousIssuesIndicator';
 import { ExportPanel } from '../exportFlow/ExportPanel';
+import { DataSourceToggle } from '../preview/DataSourceToggle';
+import { PreviewModeToggle } from '../preview/PreviewModeToggle';
+import { ColorModeToggle } from './ColorModeToggle';
 
 export const StudioToolbar: React.FC = () => {
   const [showExportPanel, setShowExportPanel] = React.useState(false);
@@ -77,6 +79,8 @@ export const StudioToolbar: React.FC = () => {
       {/* Right Area: Preview Toggle & Primary Action */}
       <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
         <ContinuousIssuesIndicator onClick={() => setShowExportPanel(true)} />
+        <ColorModeToggle />
+        <DataSourceToggle />
         <PreviewModeToggle />
         
         <button 

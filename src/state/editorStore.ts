@@ -12,6 +12,10 @@ interface EditorState {
   isAddSectionModalOpen: boolean;
   accordionState: Record<string, boolean>;
   activeRightTab: 'section' | 'theme';
+  activePreviewMode: 'design' | 'ghost';
+  ghostPreviewUrl: string | null;
+  ghostPreviewStatus: 'idle' | 'compiling' | 'starting' | 'installing' | 'ready' | 'error';
+  ghostPreviewError: string | null;
 
   setSelection: (templateId: string | null, sectionId: string | null) => void;
   setSelectedLayout: (layoutId: string | null) => void;
@@ -23,6 +27,8 @@ interface EditorState {
   setIsAddSectionModalOpen: (isOpen: boolean) => void;
   setAccordionOpen: (group: string, isOpen: boolean) => void;
   setActiveRightTab: (tab: 'section' | 'theme') => void;
+  setActivePreviewMode: (mode: 'design' | 'ghost') => void;
+  setGhostPreviewState: (status: EditorState['ghostPreviewStatus'], url?: string | null, error?: string | null) => void;
 }
 
 export const useEditorStore = create<EditorState>((set) => ({
@@ -44,6 +50,10 @@ export const useEditorStore = create<EditorState>((set) => ({
     advanced: false,
   },
   activeRightTab: 'section',
+  activePreviewMode: 'design',
+  ghostPreviewUrl: null,
+  ghostPreviewStatus: 'idle',
+  ghostPreviewError: null,
 
   setSelection: (templateId, sectionId) => set({ 
     selectedTemplateId: templateId, 
@@ -61,4 +71,10 @@ export const useEditorStore = create<EditorState>((set) => ({
     accordionState: { ...state.accordionState, [group]: isOpen }
   })),
   setActiveRightTab: (tab) => set({ activeRightTab: tab }),
+  setActivePreviewMode: (mode) => set({ activePreviewMode: mode }),
+  setGhostPreviewState: (status, url, error) => set((state) => ({
+    ghostPreviewStatus: status,
+    ...(url !== undefined && { ghostPreviewUrl: url }),
+    ...(error !== undefined && { ghostPreviewError: error })
+  }))
 }));

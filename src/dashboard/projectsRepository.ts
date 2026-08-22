@@ -30,6 +30,21 @@ function loadStore(): Record<string, ProjectRecord> {
       if (!parsed[key].ast.slug) {
         parsed[key].ast.slug = parsed[key].ast.name.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
       }
+      if (!parsed[key].ast.layouts) parsed[key].ast.layouts = [];
+      if (!parsed[key].ast.assets) parsed[key].ast.assets = [];
+
+      // Migrate for Phase 7 (AST Validator requires default and index templates)
+      const templates = parsed[key].ast.templates || [];
+      if (!templates.some(t => t.type === 'default')) {
+        templates.unshift({ id: `tpl-default-${Date.now()}`, type: 'default', sections: [] });
+      }
+      if (!templates.some(t => t.type === 'index')) {
+        templates.push({ id: `tpl-index-${Date.now()}`, type: 'index', sections: [] });
+      }
+      if (!templates.some(t => t.type === 'post')) {
+        templates.push({ id: `tpl-post-${Date.now()}`, type: 'post', sections: [] });
+      }
+      parsed[key].ast.templates = templates;
     }
     return parsed;
   } catch (e) {

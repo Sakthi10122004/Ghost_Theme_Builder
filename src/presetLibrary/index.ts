@@ -6,6 +6,16 @@ import { postsPresets } from './presets/posts';
 import { featuresPresets } from './presets/features';
 import { ctaPresets } from './presets/cta';
 
+import { recommendationsPresets } from './presets/recommendations';
+import { newsletterPresets } from './presets/newsletter';
+import { authorsPresets } from './presets/authors';
+import { testimonialsPresets } from './presets/testimonials';
+import { tagsPresets } from './presets/tags';
+import { productsPresets } from './presets/products';
+import { statsPresets } from './presets/stats';
+import { faqPresets } from './presets/faq';
+import { logoCloudPresets } from './presets/logo-cloud';
+
 // Aggregate all presets
 export const allPresets: SectionPreset[] = [
   ...headerPresets,
@@ -14,7 +24,15 @@ export const allPresets: SectionPreset[] = [
   ...postsPresets,
   ...featuresPresets,
   ...ctaPresets,
-  // Note: Testimonials, tags, newsletter etc can be added here as the library grows
+  ...recommendationsPresets,
+  ...newsletterPresets,
+  ...authorsPresets,
+  ...testimonialsPresets,
+  ...tagsPresets,
+  ...productsPresets,
+  ...statsPresets,
+  ...faqPresets,
+  ...logoCloudPresets,
 ];
 
 /**
