@@ -1,0 +1,89 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+}
+
+model User {
+  id           String    @id @default(uuid())
+  email        String    @unique
+  passwordHash String
+  name         String
+  avatar       String?
+  createdAt    DateTime  @default(now())
+  updatedAt    DateTime  @updatedAt
+  projects     Project[]
+}
+
+model Project {
+  id             String   @id @default(uuid())
+  userId         String
+  name           String
+  slug           String
+  description    String   @default("")
+  thumbnail      String?
+  status         String   @default("draft")
+  themeSettings  String   @default("{}")
+  designSystem   String   @default("{}")
+  navigation     String   @default("[]")
+  customSettings String   @default("[]")
+  routing        String   @default("{}")
+  createdAt      DateTime @default(now())
+  updatedAt      DateTime @updatedAt
+
+  user   User    @relation(fields: [userId], references: [id], onDelete: Cascade)
+  pages  Page[]
+  assets Asset[]
+
+  @@index([userId])
+}
+
+model Page {
+  id               String   @id @default(uuid())
+  projectId        String
+  name             String
+  slug             String
+  type             String   @default("page")
+  isHomepage       Boolean  @default(false)
+  sortOrder        Int      @default(0)
+  content          String   @default("{}")
+  metadata         String   @default("{}")
+  isCollection     Boolean  @default(false)
+  collectionFilter String   @default("")
+  createdAt        DateTime @default(now())
+  updatedAt        DateTime @updatedAt
+
+  project Project @relation(fields: [projectId], references: [id], onDelete: Cascade)
+
+  @@index([projectId])
+}
+
+model Asset {
+  id        String   @id @default(uuid())
+  projectId String
+  filename  String
+  url       String
+  type      String
+  size      Int      @default(0)
+  createdAt DateTime @default(now())
+
+  project Project @relation(fields: [projectId], references: [id], onDelete: Cascade)
+
+  @@index([projectId])
+}
+
+model Template {
+  id          String   @id @default(uuid())
+  name        String
+  slug        String   @unique
+  category    String
+  description String   @default("")
+  thumbnail   String?
+  content     String   @default("{}")
+  pageType    String   @default("home")
+  isPublished Boolean  @default(true)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}

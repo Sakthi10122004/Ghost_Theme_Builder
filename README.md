@@ -1,36 +1,81 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Ghost Theme Builder
+
+A visual, drag-and-drop theme builder for Ghost CMS. Create production-ready, fully dynamic Ghost themes without writing any code.
+
+## Features
+
+- **Visual Drag & Drop Editor**: Powered by Puck, allowing you to visually construct pages with ease.
+- **Dynamic Ghost Bindings**: Dedicated Ghost components (Site Title, Navigation, Post Feed, Author, Pagination) that map directly to Ghost's Handlebars helpers.
+- **Production Theme Export**: Exports standard Ghost theme files (`.hbs`, `routes.yaml`, `package.json`, `index.css`) bundled in a standard `.zip` file ready for direct upload to your Ghost instance.
+- **Advanced Design System**: Manage global variables, colors, typography, and custom settings (which map to `config.custom` in Ghost Admin).
+- **Responsive Previews**: Switch seamlessly between Desktop, Tablet, and Mobile viewports.
+- **Component Ecosystem**: Includes layout primitives (Sections, Grids) and standard UI elements (Cards, Buttons, Headings).
+
+## Tech Stack
+
+- **Framework**: Next.js (App Router)
+- **Editor Engine**: `@puckeditor/core`
+- **Database**: PostgreSQL (via Prisma ORM)
+- **Authentication**: NextAuth.js
+- **Styling**: Tailwind CSS & Vanilla CSS
+- **Icons**: Lucide React
 
 ## Getting Started
 
-First, run the development server:
+### Prerequisites
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+- Node.js 18+
+- PostgreSQL database (or compatible SQL database)
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### Installation
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+1. Clone the repository and navigate into the project directory:
+   ```bash
+   git clone <repo-url>
+   cd ghost-theme-builder
+   ```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+2. Install dependencies:
+   ```bash
+   npm install
+   ```
 
-## Learn More
+3. Set up environment variables. Create a `.env` file in the root directory:
+   ```env
+   DATABASE_URL="postgresql://user:password@localhost:5432/ghost_theme_builder"
+   NEXTAUTH_SECRET="your-secret-key"
+   NEXTAUTH_URL="http://localhost:3000"
+   ```
 
-To learn more about Next.js, take a look at the following resources:
+4. Initialize the database schema:
+   ```bash
+   npx prisma generate
+   npx prisma db push
+   ```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+5. Start the development server:
+   ```bash
+   npm run dev
+   ```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Architecture Highlights
 
-## Deploy on Vercel
+### The Compiler Pipeline
+The theme builder does not just spit out static HTML. It compiles your visual component tree into dynamic Ghost Handlebars templates (`.hbs`). 
+1. **Design Tokens**: Generates `index.css` and maps your design system settings to standard Ghost Custom Settings.
+2. **Handlebars Serialization**: Traverses the Puck component tree and converts React components into standard Handlebars helpers (e.g. `GhostPostFeed` compiles to `{{#foreach posts}}...{{/foreach}}`).
+3. **Routing**: Analyzes page metadata (like `isCollection`) to dynamically output Ghost's `routes.yaml`.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### UI/UX Design
+The interface is built to be a professional-grade design workspace:
+- **Layers Panel**: Tree-view of the component structure with visual badges indicating Ghost data bindings.
+- **Tabbed Properties Panel**: Contextually groups component configurations into Content, Style, Layout, and Ghost Binding tabs.
+- **Default Workflows**: New pages are intelligently seeded with default structural elements (Header, Hero, Footer) instead of blank canvases.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Contributing
+
+Contributions are welcome. Please ensure that all components maintain strict separation between structural layout props and Ghost dynamic bindings.
+
+## License
+
+MIT
