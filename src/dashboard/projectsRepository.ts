@@ -1,0 +1,134 @@
+import { ThemeProject } from '../ast/types';
+
+export interface ProjectRecord {
+  id: string;
+  name: string;
+  status: 'draft' | 'published';
+  updatedAt: string;
+  createdAt: string;
+  ast: ThemeProject;
+}
+
+// In-memory fallback if localStorage isn't available
+let memoryStore: Record<string, ProjectRecord> = {};
+
+const STORAGE_KEY = 'ghost_builder_projects';
+
+function loadStore(): Record<string, ProjectRecord> {
+  if (typeof window === 'undefined') return memoryStore;
+  try {
+    const data = localStorage.getItem(STORAGE_KEY);
+    return data ? JSON.parse(data) : {};
+  } catch (e) {
+    console.warn("Failed to load from localStorage", e);
+    return memoryStore;
+  }
+}
+
+function saveStore(store: Record<string, ProjectRecord>) {
+  memoryStore = store;
+  if (typeof window !== 'undefined') {
+    try {
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(store));
+    } catch (e) {
+      console.warn("Failed to save to localStorage", e);
+    }
+  }
+}
+
+/**
+ * Stub persistence layer for Phase 1.
+ * Provides a real interface for the dashboard to code against,
+ * backed by localStorage for development convenience.
+ */
+export const projectsRepository = {
+  list(): ProjectRecord[] {
+    const store = loadStore();
+    return Object.values(store).sort((a, b) => 
+      new Date(b.updatedAt).getTime() - new Date(a.updatedAt).getTime()
+    );
+  },
+
+  get(id: string): ProjectRecord | null {
+    const store = loadStore();
+    return store[id] || null;
+  },
+
+  create(name: string, ast: ThemeProject): ProjectRecord {
+    const store = loadStore();
+    
+    // Ensure the AST has the correct ID and name to match the wrapper
+    const newAst = structuredClone(ast);
+    newAst.id = ast.id || `proj-${Date.now()}`;
+    newAst.name = name;
+    
+    const record: ProjectRecord = {
+      id: newAst.id,
+      name,
+      status: 'draft',
+      createdAt: new Date().toISOString(),
+      updatedAt: new Date().toISOString(),
+      ast: newAst
+    };
+    
+    store[record.id] = record;
+    saveStore(store);
+    return record;
+  },
+
+  update(id: string, updates: Partial<ProjectRecord>): ProjectRecord {
+    const store = loadStore();
+    const existing = store[id];
+    if (!existing) throw new Error(`Project ${id} not found`);
+    
+    const updated = {
+      ...existing,
+      ...updates,
+      updatedAt: new Date().toISOString()
+    };
+    
+    // Keep AST name in sync if wrapper name changes
+    if (updates.name && updated.ast.name !== updates.name) {
+      updated.ast.name = updates.name;
+    }
+    
+    store[id] = updated;
+    saveStore(store);
+    return updated;
+  },
+
+  duplicate(id: string): ProjectRecord {
+    const store = loadStore();
+    const existing = store[id];
+    if (!existing) throw new Error(`Project ${id} not found`);
+    
+    const newId = `proj-${Date.now()}`;
+    const newName = `Copy of ${existing.name}`;
+    
+    const clonedAst = structuredClone(existing.ast);
+    clonedAst.id = newId;
+    clonedAst.name = newName;
+    
+    const newRecord: ProjectRecord = {
+      ...existing,
+      id: newId,
+      name: newName,
+      status: 'draft',
+      createdAt: new Date().toISOString(),
+      updatedAt: new Date().toISOString(),
+      ast: clonedAst
+    };
+    
+    store[newId] = newRecord;
+    saveStore(store);
+    return newRecord;
+  },
+
+  delete(id: string): void {
+    const store = loadStore();
+    if (store[id]) {
+      delete store[id];
+      saveStore(store);
+    }
+  }
+};

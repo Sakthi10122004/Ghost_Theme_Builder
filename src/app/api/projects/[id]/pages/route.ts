@@ -25,6 +25,15 @@ export async function POST(
 
   const pageCount = await prisma.page.count({ where: { projectId: id } });
 
+  const ts = Date.now();
+  const headerId = `Header-${ts}`;
+  const heroId = `Hero-${ts}`;
+  const footerId = `Footer-${ts}`;
+  const logoId = `Logo-${ts}`;
+  const navId = `Nav-${ts}`;
+  const h1Id = `HeroH1-${ts}`;
+  const pId = `HeroP-${ts}`;
+
   const page = await prisma.page.create({
     data: {
       projectId: id,
@@ -34,21 +43,21 @@ export async function POST(
       sortOrder: pageCount,
       content: JSON.stringify({
         content: [
-          { type: 'Header', props: { id: `Header-${Date.now()}`, backgroundColor: '#ffffff' } },
-          { type: 'Hero', props: { id: `Hero-${Date.now()}`, backgroundColor: '#0f172a', minHeight: '500px' } },
-          { type: 'Footer', props: { id: `Footer-${Date.now()}`, backgroundColor: '#0f172a' } }
+          { type: 'Header', props: { id: headerId, backgroundColor: '#ffffff' } },
+          { type: 'Hero', props: { id: heroId, backgroundColor: '#0f172a', minHeight: '500px' } },
+          { type: 'Footer', props: { id: footerId, backgroundColor: '#0f172a' } }
         ],
         root: { props: {} },
         zones: {
-          [`Header-${Date.now()}:header-left`]: [
-            { type: 'GhostSiteLogo', props: { id: `Logo-${Date.now()}` } }
+          [`${headerId}:header-left`]: [
+            { type: 'GhostSiteLogo', props: { id: logoId } }
           ],
-          [`Header-${Date.now()}:header-right`]: [
-            { type: 'GhostNavigation', props: { id: `Nav-${Date.now()}` } }
+          [`${headerId}:header-right`]: [
+            { type: 'GhostNavigation', props: { id: navId } }
           ],
-          [`Hero-${Date.now()}:hero-content`]: [
-            { type: 'Heading', props: { id: `HeroH1-${Date.now()}`, text: name || 'New Page', level: 'h1', color: '#ffffff', textAlign: 'center', fontSize: '48px' } },
-            { type: 'Paragraph', props: { id: `HeroP-${Date.now()}`, text: 'This is a default layout. Start dragging components from the sidebar to build your page.', color: '#cbd5e1', textAlign: 'center', fontSize: '18px' } }
+          [`${heroId}:hero-content`]: [
+            { type: 'Heading', props: { id: h1Id, text: name || 'New Page', level: 'h1', color: '#ffffff', textAlign: 'center', fontSize: '48px' } },
+            { type: 'Paragraph', props: { id: pId, text: 'Start building your page by dragging components from the sidebar.', color: '#cbd5e1', textAlign: 'center', fontSize: '18px' } }
           ]
         }
       }),
